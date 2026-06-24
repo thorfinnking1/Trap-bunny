@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://4tqpri30p3x5"]
+
+[ext_resource type="Script" uid="uid://ds5rpfcys1k7o" path="res://MainMap/ButtonsConsent.gd" id="1_75y8w"]
+
+[node name="Consent Screen" type="Control" unique_id=1944641056]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75y8w")
+
+[node name="yes" type="Button" parent="." unique_id=1751223837]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 26.0
+offset_right = -3.0
+offset_bottom = 45.0
+text = "Yes"
+
+[node name="no" type="Button" parent="." unique_id=1793015411]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 26.0
+offset_right = 59.0
+offset_bottom = 45.0
+text = "No"
+
+[connection signal="pressed" from="yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="no" to="." method="_on_no_pressed"]

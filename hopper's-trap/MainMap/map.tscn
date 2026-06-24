@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://daxn4oulnv1mk"]
+
+[ext_resource type="PackedScene" uid="uid://k5avkqcagj6p" path="res://Player/player.tscn" id="1_8mg85"]
+[ext_resource type="Script" uid="uid://c8u7a5l2x63vm" path="res://MainMap/TeleportToLvl.gd" id="2_kkc7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftx8i"]
+size = Vector2(71, 79)
+
+[node name="Map" type="Node2D" unique_id=1794455850]
+
+[node name="Player" parent="." unique_id=1231209449 instance=ExtResource("1_8mg85")]
+unique_name_in_owner = true
+position = Vector2(45, 228)
+
+[node name="temp" type="Node" parent="." unique_id=1210258682]
+
+[node name="ColorRect" type="ColorRect" parent="temp" unique_id=1869133828]
+offset_left = 372.0
+offset_top = 437.0
+offset_right = 444.0
+offset_bottom = 517.0
+color = Color(0.14622876, 0.14622876, 0.14622873, 1)
+
+[node name="Area2D" type="Area2D" parent="temp" unique_id=712137175]
+position = Vector2(372, 437)
+script = ExtResource("2_kkc7k")
+SceneTeleportTo = "res://Player/player.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="temp/Area2D" unique_id=1481436808]
+position = Vector2(35.5, 39.5)
+shape = SubResource("RectangleShape2D_ftx8i")
+
+[connection signal="body_entered" from="temp/Area2D" to="temp/Area2D" method="_on_body_entered"]
