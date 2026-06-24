@@ -20,6 +20,8 @@ Gl="*uid://cbvp2btwpsu7i"
 
 [display]
 
+window/size/viewport_width=576
+window/size/viewport_height=324
 window/size/mode=3
 window/stretch/mode="viewport"
 
@@ -31,6 +33,7 @@ folder_colors={
 "res://Player/": "yellow",
 "res://Sprites/": "red",
 "res://levels/": "purple",
+"res://reusable/": "pink",
 "res://sound/": "orange"
 }
 

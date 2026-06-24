@@ -1,12 +1,51 @@
 [gd_scene format=3 uid="uid://bbs7dmq6hbs6l"]
 
+[ext_resource type="Texture2D" uid="uid://d18npdjgrj72w" path="res://reusable/traps/bear_trap.png" id="1_hrmlo"]
 [ext_resource type="Texture2D" uid="uid://cs3jbrblfk3n2" path="res://Player/rabbit.png" id="1_jlqce"]
 
 [node name="runner" type="Node2D" unique_id=245343736]
 
-[node name="Rabbit" type="Sprite2D" parent="." unique_id=1684025397]
-position = Vector2(162, 543)
-scale = Vector2(4, 4)
+[node name="BearTrap" type="Sprite2D" parent="." unique_id=1408846990]
+position = Vector2(205, 294)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hrmlo")
+hframes = 2
+vframes = 2
+
+[node name="BearTrap2" type="Sprite2D" parent="." unique_id=299724565]
+position = Vector2(302, 265)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hrmlo")
+hframes = 2
+vframes = 2
+
+[node name="BearTrap3" type="Sprite2D" parent="." unique_id=1679027438]
+position = Vector2(244, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hrmlo")
+hframes = 2
+vframes = 2
+
+[node name="BearTrap4" type="Sprite2D" parent="." unique_id=1183784972]
+position = Vector2(404, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hrmlo")
+hframes = 2
+vframes = 2
+
+[node name="bunbun" type="Node2D" parent="." unique_id=1346608230]
+
+[node name="ears" type="Sprite2D" parent="bunbun" unique_id=1324509145]
+position = Vector2(85, 227)
+scale = Vector2(1.6874998, 2)
+texture = ExtResource("1_jlqce")
+hframes = 2
+vframes = 3
+frame = 2
+
+[node name="Rabbit" type="Sprite2D" parent="bunbun" unique_id=1684025397]
+position = Vector2(69, 269)
+scale = Vector2(2, 2)
 texture = ExtResource("1_jlqce")
 hframes = 2
 vframes = 3
