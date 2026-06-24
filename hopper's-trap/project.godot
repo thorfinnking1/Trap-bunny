@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Gl="*uid://cbvp2btwpsu7i"
+Scenemanager="*uid://bnj2c7y28gbkb"
 
 [display]
 
@@ -32,6 +33,7 @@ folder_colors={
 "res://MainMap/": "teal",
 "res://Player/": "yellow",
 "res://Sprites/": "red",
+"res://globals/": "green",
 "res://levels/": "purple",
 "res://reusable/": "pink",
 "res://sound/": "orange"

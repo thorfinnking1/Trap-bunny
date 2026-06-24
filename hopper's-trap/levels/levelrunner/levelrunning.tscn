@@ -1,51 +1,380 @@
-[gd_scene format=3 uid="uid://bbs7dmq6hbs6l"]
+[gd_scene format=4 uid="uid://bbs7dmq6hbs6l"]
 
-[ext_resource type="Texture2D" uid="uid://d18npdjgrj72w" path="res://reusable/traps/bear_trap.png" id="1_hrmlo"]
+[ext_resource type="Script" uid="uid://cnonfvqfml0yn" path="res://levels/levelrunner/trapspawner.gd" id="1_0rlrb"]
 [ext_resource type="Texture2D" uid="uid://cs3jbrblfk3n2" path="res://Player/rabbit.png" id="1_jlqce"]
+[ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="2_0rlrb"]
+[ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="3_82vwx"]
+[ext_resource type="Script" uid="uid://6t25p3ba0so7" path="res://Player/forced1dirPlr.gd" id="4_mr4o5"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0rlrb"]
+tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1073741824, 131072, 0, 0, 196608, 0, 0, 262144, 0, 1073741824, 1, 0, 1, 65537, 0, 1073741824, 131073, 0, 536870912, 196609, 0, 0, 262145, 0, 0, 2, 0, 1, 65538, 0, 1073741824, 131074, 0, 268435456, 196610, 0, 0, 262146, 0, 0, 3, 0, 268435457, 65539, 0, 0, 131075, 0, 268435456, 196611, 0, 0, 262147, 0, 1073741824)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mr4o5"]
+tile_data = PackedInt32Array(0, 0, 268435457, 65536, 0, 536870912, 1, 0, 268435457, 65537, 0, 536870912, 2, 0, 268435457, 65538, 0, 536870912)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mr4o5"]
+texture = ExtResource("2_0rlrb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qm07u"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_mr4o5")
+pattern_0 = SubResource("TileMapPattern_0rlrb")
+pattern_1 = SubResource("TileMapPattern_mr4o5")
+
+[sub_resource type="Animation" id="Animation_dfmwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 163)]
+}
+
+[sub_resource type="Animation" id="Animation_fjhun"]
+resource_name = "wable"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(290, 163), Vector2(290, 158), Vector2(290, 166)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_if5fy"]
+_data = {
+&"RESET": SubResource("Animation_dfmwt"),
+&"wable": SubResource("Animation_fjhun")
+}
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0rlrb"]
+radius = 7.349
+height = 22.916
+
+[sub_resource type="Animation" id="Animation_mr4o5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rabbit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rabbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, -31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [22.916]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:mesh:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7.349]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rabbit/ears:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rabbit:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qm07u"]
+resource_name = "running"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rabbit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rabbit:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -31), Vector2(17, -96), Vector2(9, -31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [22.916, 22.916, 9.218, 22.916]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:mesh:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [7.349, 7.349, 4.609, 7.349]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rabbit/ears:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 3, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rabbit:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.17078452, 0.17078452, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfmwt"]
+_data = {
+&"RESET": SubResource("Animation_mr4o5"),
+&"running": SubResource("Animation_qm07u")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qm07u"]
+radius = 15.033297
 
 [node name="runner" type="Node2D" unique_id=245343736]
+script = ExtResource("1_0rlrb")
 
-[node name="BearTrap" type="Sprite2D" parent="." unique_id=1408846990]
-position = Vector2(205, 294)
-scale = Vector2(2, 2)
-texture = ExtResource("1_hrmlo")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1257796232]
+offset_left = -14.0
+offset_top = -11.0
+offset_right = 597.0
+offset_bottom = 315.0
+color = Color(0.0621164, 0.107476704, 0.036726855, 1)
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=531466045]
+scroll_offset = Vector2(0, -82)
+repeat_size = Vector2(750, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D3" unique_id=617836294]
+modulate = Color(0.15313837, 0.13069582, 0.0473177, 1)
+position = Vector2(187, 194)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_82vwx")
 hframes = 2
 vframes = 2
-
-[node name="BearTrap2" type="Sprite2D" parent="." unique_id=299724565]
-position = Vector2(302, 265)
-scale = Vector2(2, 2)
-texture = ExtResource("1_hrmlo")
-hframes = 2
-vframes = 2
-
-[node name="BearTrap3" type="Sprite2D" parent="." unique_id=1679027438]
-position = Vector2(244, 232)
-scale = Vector2(2, 2)
-texture = ExtResource("1_hrmlo")
-hframes = 2
-vframes = 2
-
-[node name="BearTrap4" type="Sprite2D" parent="." unique_id=1183784972]
-position = Vector2(404, 288)
-scale = Vector2(2, 2)
-texture = ExtResource("1_hrmlo")
-hframes = 2
-vframes = 2
-
-[node name="bunbun" type="Node2D" parent="." unique_id=1346608230]
-
-[node name="ears" type="Sprite2D" parent="bunbun" unique_id=1324509145]
-position = Vector2(85, 227)
-scale = Vector2(1.6874998, 2)
-texture = ExtResource("1_jlqce")
-hframes = 2
-vframes = 3
 frame = 2
 
+[node name="Backgroundtrees2" type="Sprite2D" parent="Parallax2D3" unique_id=146205082]
+modulate = Color(0.15313837, 0.13069582, 0.0473177, 1)
+position = Vector2(580, 193)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_82vwx")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1085682412]
+scroll_offset = Vector2(0, -69)
+repeat_size = Vector2(750, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Parallax2D2" unique_id=2135451012]
+modulate = Color(0.043519013, 0.19611126, 0.095914416, 1)
+position = Vector2(1, -35)
+tile_map_data = PackedByteArray("AAAHAAkAAAAAAAAAACAIAAkAAAAAAAAAACAHAAgAAAAAAAEAABAJAAkAAAAAAAAAACAKAAkAAAAAAAAAACAJAAgAAAAAAAEAABAKAAgAAAAAAAEAABALAAgAAAAAAAEAABAIAAgAAAAAAAEAABAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEADAAgAAAAAAAEAABADAAkAAAAAAAAAAAAEAAgAAAAAAAEAABAEAAkAAAAAAAAAACAFAAgAAAAAAAEAABAFAAkAAAAAAAAAACAGAAgAAAAAAAEAABAGAAkAAAAAAAAAACAMAAgAAAAAAAEAABAMAAkAAAAAAAAAACANAAgAAAAAAAEAABANAAkAAAAAAAAAACAOAAgAAAAAAAEAABAOAAkAAAAAAAAAACAPAAgAAAAAAAEAABAPAAkAAAAAAAAAACAQAAgAAAAAAAEAABAQAAkAAAAAAAAAACARAAgAAAAAAAEAABARAAkAAAAAAAAAACASAAgAAAAAAAEAABASAAkAAAAAAAAAACATAAgAAAAAAAEAABATAAkAAAAAAAAAACAUAAgAAAAAAAEAABAUAAkAAAAAAAAAACAVAAgAAAAAAAEAABAVAAkAAAAAAAAAACAWAAgAAAAAAAEAABAWAAkAAAAAAAAAACAXAAgAAAAAAAEAABAXAAkAAAAAAAAAACAYAAgAAAAAAAEAABAYAAkAAAAAAAAAACAZAAgAAAAAAAEAABAZAAkAAAAAAAAAACALAAkAAAAAAAAAACA=")
+tile_set = SubResource("TileSet_qm07u")
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D2" unique_id=107215720]
+modulate = Color(0.1936799, 0.16892633, 0.07259295, 1)
+position = Vector2(187, 180)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_82vwx")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Backgroundtrees2" type="Sprite2D" parent="Parallax2D2" unique_id=166575365]
+modulate = Color(0.1936799, 0.16892633, 0.07259295, 1)
+position = Vector2(563, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_82vwx")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1185592067]
+scroll_offset = Vector2(0, -80)
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(-150, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=889837365]
+modulate = Color(0.09825099, 0.33611673, 0.17907065, 1)
+scale = Vector2(2, 1)
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEABAAoAAAAAAAAAACABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEACAAoAAAAAAAAAABACAAsAAAAAAAAAAAACAAwAAAAAAAAAAAADAAgAAAAAAAEAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAABADAAsAAAAAAAAAAAADAAwAAAAAAAAAAEAFAAgAAAAAAAEAAAAFAAkAAAAAAAAAAEAFAAoAAAAAAAAAACAFAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAAAAEAGAAoAAAAAAAAAABAGAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAgAAAAAAAEAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAABAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAEAIAAgAAAAAAAEAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAABAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAEAEAAgAAAAAAAEAAAAEAAkAAAAAAAAAAEAEAAoAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAAAAEA=")
+tile_set = SubResource("TileSet_qm07u")
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D" unique_id=1505026112]
+modulate = Color(0.24123386, 0.16720337, 0.024477592, 1)
+position = Vector2(271, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("3_82vwx")
+hframes = 2
+vframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1130353721]
+position = Vector2(290, 163)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=903086103]
+libraries/ = SubResource("AnimationLibrary_if5fy")
+autoplay = &"wable"
+speed_scale = 0.5
+
+[node name="bunbun" type="CharacterBody2D" parent="." unique_id=1950597137]
+modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
+z_index = 1
+position = Vector2(82, 269)
+script = ExtResource("4_mr4o5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="bunbun" unique_id=1042680410]
+modulate = Color(0, 0, 0, 0.2509804)
+z_index = -1
+position = Vector2(6, -6)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+mesh = SubResource("CapsuleMesh_0rlrb")
+
 [node name="Rabbit" type="Sprite2D" parent="bunbun" unique_id=1684025397]
-position = Vector2(69, 269)
+position = Vector2(9, -31)
 scale = Vector2(2, 2)
 texture = ExtResource("1_jlqce")
 hframes = 2
 vframes = 3
+
+[node name="ears" type="Sprite2D" parent="bunbun/Rabbit" unique_id=1324509145]
+position = Vector2(8.000006, -20.999985)
+scale = Vector2(0.8437499, 1)
+texture = ExtResource("1_jlqce")
+hframes = 2
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bunbun" unique_id=1503121382]
+libraries/ = SubResource("AnimationLibrary_dfmwt")
+autoplay = &"running"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=207693890]
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_qm07u")
