@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bbs7dmq6hbs6l"]
+
+[ext_resource type="Texture2D" uid="uid://cs3jbrblfk3n2" path="res://Player/rabbit.png" id="1_jlqce"]
+
+[node name="runner" type="Node2D" unique_id=245343736]
+
+[node name="Rabbit" type="Sprite2D" parent="." unique_id=1684025397]
+position = Vector2(162, 543)
+scale = Vector2(4, 4)
+texture = ExtResource("1_jlqce")
+hframes = 2
+vframes = 3

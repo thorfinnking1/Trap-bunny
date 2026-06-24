@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 Gl="*uid://cbvp2btwpsu7i"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [file_customization]
 
 folder_colors={
@@ -25,6 +30,7 @@ folder_colors={
 "res://MainMap/": "teal",
 "res://Player/": "yellow",
 "res://Sprites/": "red",
+"res://levels/": "purple",
 "res://sound/": "orange"
 }
 
@@ -61,4 +67,5 @@ Left={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
