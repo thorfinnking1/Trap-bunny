@@ -4,9 +4,12 @@ extends Node2D
 
 var time:int
 
+signal kill
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("plr"):
 		animation.play("catch")
+		kill.emit()
 
 func _on_timer_timeout() -> void:
 	time-=1

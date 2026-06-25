@@ -43,7 +43,7 @@ _data = {
 &"catch": SubResource("Animation_foqdl")
 }
 
-[node name="beartrap" type="Node2D" unique_id=1632493391]
+[node name="RigidBody2D" type="Node2D" unique_id=1759796603]
 script = ExtResource("1_nkubm")
 
 [node name="BearTrap" type="Sprite2D" parent="." unique_id=1386538224]

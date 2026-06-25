@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dpuabxnjo6c4p"]
+
+[ext_resource type="Script" uid="uid://cb5sgmsh2ocop" path="res://Player/screeningdied.gd" id="1_pwro6"]
+[ext_resource type="Texture2D" uid="uid://p3nor12vhblp" path="res://Player/died screen.png" id="1_pww0e"]
+[ext_resource type="Texture2D" uid="uid://dxv1sjxi8f0g0" path="res://Player/rabbit16.png" id="3_ytruo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y10by"]
+atlas = ExtResource("3_ytruo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lesj"]
+atlas = ExtResource("3_ytruo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68td1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y10by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lesj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="deadscreen" type="Node2D" unique_id=906459502]
+script = ExtResource("1_pwro6")
+
+[node name="DiedScreen" type="Sprite2D" parent="." unique_id=1077834977]
+position = Vector2(286, 157)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pww0e")
+hframes = 2
+vframes = 2
+
+[node name="DiedScreen2" type="Sprite2D" parent="DiedScreen" unique_id=1927645142]
+z_index = 1
+texture = ExtResource("1_pww0e")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DiedScreen/DiedScreen2" unique_id=88456907]
+position = Vector2(-23, -9)
+sprite_frames = SubResource("SpriteFrames_68td1")
+autoplay = "default"
+frame_progress = 0.12692764
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1936374919]
+offset_left = 222.0
+offset_top = 107.0
+offset_right = 350.0
+offset_bottom = 164.0
+scale = Vector2(2, 2)
+value = 5.0
+nine_patch_stretch = true
+stretch_margin_right = 128
+stretch_margin_bottom = 57
+texture_progress = ExtResource("1_pww0e")
+
+[node name="Button" type="Button" parent="." unique_id=1154640100]
+offset_left = 226.0
+offset_top = 221.0
+offset_right = 279.0
+offset_bottom = 252.0
+text = "retry"
+
+[node name="Button2" type="Button" parent="." unique_id=1691410596]
+offset_left = 282.0
+offset_top = 221.0
+offset_right = 346.0
+offset_bottom = 252.0
+text = "give up"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
