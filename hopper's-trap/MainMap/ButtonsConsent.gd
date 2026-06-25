@@ -1,9 +1,9 @@
 extends Control
 
+var scene:String
 
 func _on_yes_pressed() -> void:
-	get_tree().change_scene_to_file(Gl.Scene)
-	Plr.inLevel = true
+	get_tree().change_scene_to_file(scene)
 	queue_free()
 
 

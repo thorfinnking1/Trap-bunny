@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgs841o1hipf1"
-path="res://.godot/imported/rabbit.png-2280405032d47fbe14dfdd3e8d2164c1.ctex"
+uid="uid://2vddnw2wh4x1"
+path="res://.godot/imported/mapforest.png-1759d606155976da111501c793c0ffb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/rabbit.png"
-dest_files=["res://.godot/imported/rabbit.png-2280405032d47fbe14dfdd3e8d2164c1.ctex"]
+source_file="res://MainMap/mapforest.png"
+dest_files=["res://.godot/imported/mapforest.png-1759d606155976da111501c793c0ffb5.ctex"]
 
 [params]
 

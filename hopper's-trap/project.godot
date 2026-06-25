@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="Hopper's Trap"
-run/main_scene="uid://k5avkqcagj6p"
+run/main_scene="uid://daxn4oulnv1mk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
 Gl="*uid://cbvp2btwpsu7i"
-Scenemanager="*uid://bnj2c7y28gbkb"
 
 [display]
 
@@ -38,6 +37,10 @@ folder_colors={
 "res://reusable/": "pink",
 "res://sound/": "orange"
 }
+
+[global_group]
+
+plr=""
 
 [input]
 

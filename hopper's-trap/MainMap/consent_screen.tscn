@@ -12,20 +12,32 @@ grow_vertical = 2
 script = ExtResource("1_75y8w")
 
 [node name="yes" type="Button" parent="." unique_id=1751223837]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48958334
+anchor_top = 0.44444445
+anchor_right = 0.48958334
+anchor_bottom = 0.4814815
 offset_left = -56.0
 offset_top = 26.0
 offset_right = -3.0
 offset_bottom = 45.0
 text = "Yes"
+metadata/_edit_use_anchors_ = true
 
 [node name="no" type="Button" parent="." unique_id=1793015411]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48958334
+anchor_top = 0.44444445
+anchor_right = 0.48958334
+anchor_bottom = 0.4814815
 offset_left = 6.0
 offset_top = 26.0
 offset_right = 59.0
 offset_bottom = 45.0
 text = "No"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="no" to="." method="_on_no_pressed"]
