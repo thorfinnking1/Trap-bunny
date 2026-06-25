@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://bbs7dmq6hbs6l"]
 
 [ext_resource type="Script" uid="uid://cnonfvqfml0yn" path="res://levels/levelrunner/trapspawner.gd" id="1_0rlrb"]
-[ext_resource type="Texture2D" uid="uid://cs3jbrblfk3n2" path="res://Player/rabbit.png" id="1_jlqce"]
+[ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="1_jlqce"]
 [ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="2_0rlrb"]
 [ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="3_82vwx"]
 [ext_resource type="Script" uid="uid://6t25p3ba0so7" path="res://Player/forced1dirPlr.gd" id="4_mr4o5"]
+[ext_resource type="PackedScene" uid="uid://b4qbbdekef3q3" path="res://reusable/traps/beartrap.tscn" id="6_qm07u"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0rlrb"]
 tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1073741824, 131072, 0, 0, 196608, 0, 0, 262144, 0, 1073741824, 1, 0, 1, 65537, 0, 1073741824, 131073, 0, 536870912, 196609, 0, 0, 262145, 0, 0, 2, 0, 1, 65538, 0, 1073741824, 131074, 0, 268435456, 196610, 0, 0, 262146, 0, 0, 3, 0, 268435457, 65539, 0, 0, 131075, 0, 268435456, 196611, 0, 0, 262147, 0, 1073741824)
@@ -249,7 +250,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qm07u"]
-radius = 15.033297
+radius = 13.0
 
 [node name="runner" type="Node2D" unique_id=245343736]
 script = ExtResource("1_0rlrb")
@@ -342,10 +343,10 @@ libraries/ = SubResource("AnimationLibrary_if5fy")
 autoplay = &"wable"
 speed_scale = 0.5
 
-[node name="bunbun" type="CharacterBody2D" parent="." unique_id=1950597137]
+[node name="bunbun" type="CharacterBody2D" parent="." unique_id=1950597137 groups=["plr"]]
 modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
 z_index = 1
-position = Vector2(82, 269)
+position = Vector2(145, 276)
 script = ExtResource("4_mr4o5")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="bunbun" unique_id=1042680410]
@@ -376,5 +377,17 @@ libraries/ = SubResource("AnimationLibrary_dfmwt")
 autoplay = &"running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=207693890]
-position = Vector2(1, -15)
+position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_qm07u")
+
+[node name="going" type="Node2D" parent="." unique_id=941618027]
+modulate = Color(0.51718444, 0.5171845, 0.51718444, 1)
+position = Vector2(611, 266)
+
+[node name="beartrap" parent="going" unique_id=1632493391 instance=ExtResource("6_qm07u")]
+position = Vector2(-153, -29)
+
+[node name="Timer" type="Timer" parent="." unique_id=1275019618]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

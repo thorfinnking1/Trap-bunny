@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://d18npdjgrj72w" path="res://reusable/traps/bear_trap.png" id="1_wln5i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wln5i"]
-radius = 15.0
 
 [sub_resource type="Animation" id="Animation_nwa4i"]
 length = 0.001
@@ -62,4 +61,8 @@ shape = SubResource("CircleShape2D_wln5i")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1706950162]
 libraries/ = SubResource("AnimationLibrary_k3uu0")
 
+[node name="Timer" type="Timer" parent="." unique_id=1073350476]
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
