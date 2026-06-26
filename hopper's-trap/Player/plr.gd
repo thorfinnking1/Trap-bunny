@@ -1,15 +1,20 @@
 extends CharacterBody2D
 
 var speed := 50.0
+var moving=true
 #static var inLevel : float = false
 @onready var rabbit_16: Sprite2D = $Rabbit16
 @onready var animation: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	if Gl.player_position:
+		global_position=Gl.player_position
 
 func _physics_process(_delta: float) -> void:
 	var direction
 	#if not inLevel:
 	direction = Input.get_vector("Left","Right","Up","Down")
-	if direction != Vector2.ZERO:
+	if direction and moving:
 		animation.play("walk")
 		if direction.x<0:
 			rabbit_16.flip_h=true

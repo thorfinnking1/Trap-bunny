@@ -2,8 +2,12 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
+@onready var hitanimation: AnimationPlayer = $hitanimation
+
 @onready var ground: Node2D = $going
-var time=20
+var max_time=20.0
+var time=0.0
+var hp=2
 
 @onready var burrow: Node2D = $burrow
 
@@ -44,25 +48,36 @@ func _process(delta: float) -> void:
 		parallax_2d_3.autoscroll.x=0
 
 func _on_timer_timeout() -> void:
-	time-=1
+	if play:
+		time+=1
+	
 	if play and goodtogo:
 		for i in range(randi_range(1,2)):
 			var trap=BEARTRAP.instantiate()
 			ground.add_child(trap)
 			trap.time=5
 			trap.position=Vector2(0,randf_range(-50,40))
-		if time<=0:
+			trap.connect("kill",dead)
+		if time>=max_time:
 			goodtogo=false
 			var child=burrow
 			child.get_parent().remove_child(child)
 			ground.add_child(child)
 			child.position=Vector2(280,0)
-	elif time<=-5:
+	elif time>=max_time+5:
 		play=false
 		bunbun.visible=false
+		Gl.levels[0][2]=hp+1
+		Scenemanager.leave("res://MainMap/map.tscn","circle")
 
 func dead()->void:
-	play=false
-	goodtogo=false
-	var deadscreen=DEADSCREEN.instantiate()
-	canvas_layer.add_child(deadscreen)
+	if hp<=0 and play:
+		play=false
+		goodtogo=false
+		bunbun.jumparound=false
+		var deadscreen=DEADSCREEN.instantiate()
+		canvas_layer.add_child(deadscreen)
+		var val=time/max_time*41+5
+		deadscreen.value=val
+	hp-=1
+	hitanimation.play("hit")

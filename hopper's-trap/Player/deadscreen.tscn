@@ -44,10 +44,10 @@ vframes = 2
 frame = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DiedScreen/DiedScreen2" unique_id=88456907]
-position = Vector2(-23, -9)
+position = Vector2(-24, -9)
 sprite_frames = SubResource("SpriteFrames_68td1")
 autoplay = "default"
-frame_progress = 0.12692764
+frame_progress = 0.521363
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1936374919]
 offset_left = 222.0

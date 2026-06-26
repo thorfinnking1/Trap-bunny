@@ -3,7 +3,7 @@ extends Node2D
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var pointer: Sprite2D = $DiedScreen/DiedScreen2
 
-var value:=20.0 #should start at 0 and end at 46
+var value:=0.0 #should start at 0 and end at 46
 
 func _process(_delta: float) -> void:
 	progress_bar.value=lerp(progress_bar.value,value,0.1)

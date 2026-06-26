@@ -17,7 +17,6 @@ func _physics_process(_delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 	else:
 		if not jumparound:
-			await animation.animation_finished
 			animation.play("RESET")
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
