@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed := 50.0
+var speed := 35.0
 var moving=true
 #static var inLevel : float = false
 @onready var rabbit_16: Sprite2D = $Rabbit16
