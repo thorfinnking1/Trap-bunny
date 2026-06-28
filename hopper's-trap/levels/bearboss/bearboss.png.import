@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f58ggmpn03ll"
-path="res://.godot/imported/bearboss.png-b8e5d039e3c15023fe596c619e9f7c62.ctex"
+path="res://.godot/imported/bearboss.png-ee462872d72fc6947125f96f38b88f1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/bearboss/bearboss.png"
-dest_files=["res://.godot/imported/bearboss.png-b8e5d039e3c15023fe596c619e9f7c62.ctex"]
+source_file="res://Levels/bearboss/bearboss.png"
+dest_files=["res://.godot/imported/bearboss.png-ee462872d72fc6947125f96f38b88f1e.ctex"]
 
 [params]
 
