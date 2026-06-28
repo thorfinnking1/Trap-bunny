@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://0rb0vrqi35t3" path="res://Levels/Runner Boss/props.png" id="2_a7vrh"]
 [ext_resource type="Script" uid="uid://bk16ggwou3cab" path="res://Player/forced1dirPlr2.gd" id="3_6r3ov"]
 [ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="4_jv1b3"]
+[ext_resource type="Texture2D" uid="uid://cp8um1t0dwx02" path="res://Levels/Runner Boss/hunter1.png" id="5_jv1b3"]
+[ext_resource type="Script" uid="uid://daibsgmmtwg8h" path="res://Levels/Runner Boss/enemy.gd" id="5_knhjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r3ov"]
 texture = ExtResource("2_a7vrh")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -3.8554306, 16, -3.669117, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -5.1079865, 16, -4.8202133, 16, 16, -16, 16)
 1:0/0 = 0
 2:0/0 = 0
 0:1/0 = 0
@@ -142,12 +144,76 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqlas"]
 radius = 13.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjy"]
+radius = 6.0
+height = 63.0
+
 [node name="Node2D" type="Node2D" unique_id=1511033087]
 
 [node name="Background" type="Node" parent="." unique_id=1826026693]
 
-[node name="Sky" type="Sprite2D" parent="Background" unique_id=377747536]
-position = Vector2(288, 162)
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1326270772]
+offset_right = 579.0
+offset_bottom = 388.0
+color = Color(0, 0.54217625, 0.54217625, 1)
+
+[node name="clouds" type="Parallax2D" parent="Background" unique_id=645927367]
+scroll_offset = Vector2(0, -2)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds" unique_id=377747536]
+modulate = Color(0.7953939, 0.79539394, 0.7953939, 1)
+position = Vector2(174, 141)
+texture = ExtResource("1_lemn5")
+
+[node name="clouds2" type="Parallax2D" parent="Background" unique_id=897335525]
+scroll_offset = Vector2(114, 4)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds2" unique_id=1236915089]
+modulate = Color(0.7953939, 0.79539394, 0.7953939, 1)
+position = Vector2(174, 141)
+texture = ExtResource("1_lemn5")
+
+[node name="clouds3" type="Parallax2D" parent="Background" unique_id=1841356905]
+scroll_offset = Vector2(-255, -39)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds3" unique_id=1961438460]
+modulate = Color(0.7953939, 0.79539394, 0.7953939, 1)
+position = Vector2(174, 141)
+texture = ExtResource("1_lemn5")
+
+[node name="clouds4" type="Parallax2D" parent="Background" unique_id=2098862427]
+scroll_offset = Vector2(48, -72)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds4" unique_id=1349606866]
+modulate = Color(0.7953939, 0.79539394, 0.7953939, 1)
+position = Vector2(174, 141)
+texture = ExtResource("1_lemn5")
+
+[node name="clouds5" type="Parallax2D" parent="Background" unique_id=1646418839]
+scroll_offset = Vector2(-171, 29)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds5" unique_id=545145898]
+modulate = Color(0.7953939, 0.79539394, 0.7953939, 1)
+position = Vector2(174, 141)
+texture = ExtResource("1_lemn5")
+
+[node name="clouds6" type="Parallax2D" parent="Background" unique_id=1973070605]
+scroll_offset = Vector2(0, -2)
+repeat_size = Vector2(578, 0)
+autoscroll = Vector2(30, 0)
+
+[node name="clouds" type="Sprite2D" parent="Background/clouds6" unique_id=69836870]
+position = Vector2(376, 165)
 scale = Vector2(2, 2)
 texture = ExtResource("1_lemn5")
 
@@ -175,7 +241,6 @@ tile_map_data = PackedByteArray("AAAAAAQAAQAAAAEAAAAHAAQAAQABAAEAAAAEAAQAAQAAAAE
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="bunbun" type="CharacterBody2D" parent="." unique_id=1317256727 groups=["plr"]]
-modulate = Color(0.67481464, 0.67481464, 0.6748146, 1)
 z_index = 1
 position = Vector2(145, 275)
 script = ExtResource("3_6r3ov")
@@ -211,3 +276,26 @@ libraries/ = SubResource("AnimationLibrary_4vpt3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=2050307732]
 position = Vector2(16, -14)
 shape = SubResource("CircleShape2D_yqlas")
+
+[node name="enemy" type="CharacterBody2D" parent="." unique_id=1320393551 groups=["Enemy"]]
+z_index = 1
+position = Vector2(467, -311)
+scale = Vector2(2, 2)
+script = ExtResource("5_knhjy")
+
+[node name="body" type="Sprite2D" parent="enemy" unique_id=20568030]
+position = Vector2(-89, 260)
+texture = ExtResource("5_jv1b3")
+hframes = 4
+vframes = 3
+
+[node name="arms" type="Sprite2D" parent="enemy" unique_id=1060303527]
+position = Vector2(-79, 262)
+texture = ExtResource("5_jv1b3")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=194727806]
+position = Vector2(-88.5, 260.5)
+shape = SubResource("CapsuleShape2D_knhjy")
