@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rb0vrqi35t3"
-path="res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"
+uid="uid://3t2754tixsmd"
+path="res://.godot/imported/sleepingbear.png-3023c7aefb671db3ccb0c71e0f6f655d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/Runner Boss/props.png"
-dest_files=["res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"]
+source_file="res://levels/bearboss/sleepingbear.png"
+dest_files=["res://.godot/imported/sleepingbear.png-3023c7aefb671db3ccb0c71e0f6f655d.ctex"]
 
 [params]
 

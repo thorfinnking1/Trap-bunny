@@ -253,6 +253,67 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_qm07u"]
 radius = 13.0
 
+[sub_resource type="Animation" id="Animation_if5fy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mjxkn"]
+resource_name = "hit"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0, 0, 0.18039216), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_535lp"]
+_data = {
+&"RESET": SubResource("Animation_if5fy"),
+&"hit": SubResource("Animation_mjxkn")
+}
+
 [node name="runner" type="Node2D" unique_id=245343736]
 script = ExtResource("1_0rlrb")
 
@@ -386,10 +447,10 @@ modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
 position = Vector2(611, 266)
 
 [node name="beartrap" parent="going" unique_id=1632493391 instance=ExtResource("6_qm07u")]
-position = Vector2(-286, 35)
+position = Vector2(-216, 19)
 
 [node name="beartrap2" parent="going" unique_id=1384101400 instance=ExtResource("6_qm07u")]
-position = Vector2(-140, -50)
+position = Vector2(-233, -47)
 
 [node name="beartrap3" parent="going" unique_id=1310020177 instance=ExtResource("6_qm07u")]
 position = Vector2(-91, 37)
@@ -423,5 +484,16 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_dfmwt")
 hframes = 2
 frame = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1750878140]
+visible = false
+z_index = 1
+offset_right = 583.0
+offset_bottom = 331.0
+color = Color(1, 1, 1, 0)
+
+[node name="hitanimation" type="AnimationPlayer" parent="." unique_id=1255875033]
+libraries/ = SubResource("AnimationLibrary_535lp")
+speed_scale = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

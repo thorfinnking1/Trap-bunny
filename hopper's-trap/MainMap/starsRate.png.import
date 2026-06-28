@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rb0vrqi35t3"
-path="res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"
+uid="uid://dwvenot4kghux"
+path="res://.godot/imported/starsRate.png-aefbdc607c28ed9b1cd14f3935e8184d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/Runner Boss/props.png"
-dest_files=["res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"]
+source_file="res://MainMap/starsRate.png"
+dest_files=["res://.godot/imported/starsRate.png-aefbdc607c28ed9b1cd14f3935e8184d.ctex"]
 
 [params]
 

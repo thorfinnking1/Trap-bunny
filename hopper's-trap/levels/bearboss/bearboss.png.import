@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rb0vrqi35t3"
-path="res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"
+uid="uid://f58ggmpn03ll"
+path="res://.godot/imported/bearboss.png-b8e5d039e3c15023fe596c619e9f7c62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/Runner Boss/props.png"
-dest_files=["res://.godot/imported/props.png-d26605916a0872fdad798960c9386898.ctex"]
+source_file="res://levels/bearboss/bearboss.png"
+dest_files=["res://.godot/imported/bearboss.png-b8e5d039e3c15023fe596c619e9f7c62.ctex"]
 
 [params]
 
