@@ -366,6 +366,17 @@ polygon = PackedVector2Array(267, 188, 244, 215, 242, 254, 216.0573, 255.23538, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="boarder" unique_id=1623046928]
 polygon = PackedVector2Array(167, 124, 169, 118, 195, 113, 199, 99, 203, 98, 205, 106, 212, 105, 227, 111, 234, 119, 249, 127, 249, 138, 244, 146, 241, 156, 232, 163, 213, 160, 197, 162, 191, 177, 185, 175, 181, 166, 175, 161, 170, 147, 165, 135, 184, 135, 182, 124)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=349659076]
+offset_left = 268.0
+offset_top = 105.0
+offset_right = 446.0
+offset_bottom = 263.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[b][color=black][wave][wave]hello this game is not finished,
+it currently has 4 levels"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="levels/hop-n-run" to="levels/hop-n-run" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight1" to="levels/fight1" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight2" to="levels/fight2" method="_on_body_entered"]
