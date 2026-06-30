@@ -1,5 +1,7 @@
 extends Node
 
+var InLvl : bool = false
+var sounddb : int = 0
 var player_position:Vector2i
 
 var levels:Dictionary[int,Array]={0:["[b][color=black][wave]hop-n-run","[b][color=green][wave]easy",0],

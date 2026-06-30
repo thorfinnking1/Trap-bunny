@@ -1,0 +1,190 @@
+[gd_scene format=4 uid="uid://d1yb3e22vppck"]
+
+[ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="1_bajiw"]
+[ext_resource type="Script" uid="uid://c5d48qigyqs3w" path="res://menu/main_menu.gd" id="1_f0j1r"]
+[ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="2_f0j1r"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0rlrb"]
+tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1073741824, 131072, 0, 0, 196608, 0, 0, 262144, 0, 1073741824, 1, 0, 1, 65537, 0, 1073741824, 131073, 0, 536870912, 196609, 0, 0, 262145, 0, 0, 2, 0, 1, 65538, 0, 1073741824, 131074, 0, 268435456, 196610, 0, 0, 262146, 0, 0, 3, 0, 268435457, 65539, 0, 0, 131075, 0, 268435456, 196611, 0, 0, 262147, 0, 1073741824)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mr4o5"]
+tile_data = PackedInt32Array(0, 0, 268435457, 65536, 0, 536870912, 1, 0, 268435457, 65537, 0, 536870912, 2, 0, 268435457, 65538, 0, 536870912)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqwyt"]
+texture = ExtResource("2_f0j1r")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iv0vr"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_qqwyt")
+pattern_0 = SubResource("TileMapPattern_0rlrb")
+pattern_1 = SubResource("TileMapPattern_mr4o5")
+
+[node name="Control" type="Control" unique_id=1359915031]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f0j1r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=153477296]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -11.0
+offset_right = 597.0
+offset_bottom = 315.0
+color = Color(0.0621164, 0.107476704, 0.036726855, 1)
+
+[node name="Backgroundtrees" type="Sprite2D" parent="." unique_id=1064138153]
+modulate = Color(0.1802752, 0.15367627, 0.06059204, 1)
+position = Vector2(187, 194)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bajiw")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Backgroundtrees2" type="Sprite2D" parent="." unique_id=1168064552]
+modulate = Color(0.1802752, 0.15367627, 0.06059204, 1)
+position = Vector2(580, 193)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bajiw")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1750402658]
+modulate = Color(0.092717476, 0.3214839, 0.16723704, 1)
+position = Vector2(1, -35)
+tile_map_data = PackedByteArray("AAAHAAkAAAAAAAAAACAIAAkAAAAAAAAAACAHAAgAAAAAAAEAABAJAAkAAAAAAAAAACAKAAkAAAAAAAAAACAJAAgAAAAAAAEAABAKAAgAAAAAAAEAABALAAgAAAAAAAEAABAIAAgAAAAAAAEAABAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEADAAgAAAAAAAEAABADAAkAAAAAAAAAAAAEAAgAAAAAAAEAABAEAAkAAAAAAAAAACAFAAgAAAAAAAEAABAFAAkAAAAAAAAAACAGAAgAAAAAAAEAABAGAAkAAAAAAAAAACAMAAgAAAAAAAEAABAMAAkAAAAAAAAAACANAAgAAAAAAAEAABANAAkAAAAAAAAAACAOAAgAAAAAAAEAABAOAAkAAAAAAAAAACAPAAgAAAAAAAEAABAPAAkAAAAAAAAAACAQAAgAAAAAAAEAABAQAAkAAAAAAAAAACARAAgAAAAAAAEAABARAAkAAAAAAAAAACASAAgAAAAAAAEAABASAAkAAAAAAAAAACATAAgAAAAAAAEAABATAAkAAAAAAAAAACAUAAgAAAAAAAEAABAUAAkAAAAAAAAAACAVAAgAAAAAAAEAABAVAAkAAAAAAAAAACAWAAgAAAAAAAEAABAWAAkAAAAAAAAAACAXAAgAAAAAAAEAABAXAAkAAAAAAAAAACAYAAgAAAAAAAEAABAYAAkAAAAAAAAAACAZAAgAAAAAAAEAABAZAAkAAAAAAAAAACALAAkAAAAAAAAAACA=")
+tile_set = SubResource("TileSet_iv0vr")
+
+[node name="Backgroundtrees3" type="Sprite2D" parent="." unique_id=87609313]
+modulate = Color(0.22641054, 0.19966817, 0.09271655, 1)
+position = Vector2(187, 180)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bajiw")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Backgroundtrees4" type="Sprite2D" parent="." unique_id=365408767]
+modulate = Color(0.22641054, 0.19966817, 0.09271655, 1)
+position = Vector2(563, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bajiw")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2069517685]
+modulate = Color(0.13328564, 0.43083042, 0.2360371, 1)
+scale = Vector2(2, 1)
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEABAAoAAAAAAAAAACABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEACAAoAAAAAAAAAABACAAsAAAAAAAAAAAACAAwAAAAAAAAAAAADAAgAAAAAAAEAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAABADAAsAAAAAAAAAAAADAAwAAAAAAAAAAEAFAAgAAAAAAAEAAAAFAAkAAAAAAAAAAEAFAAoAAAAAAAAAACAFAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAAAAEAGAAoAAAAAAAAAABAGAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAgAAAAAAAEAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAABAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAEAIAAgAAAAAAAEAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAABAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAEAEAAgAAAAAAAEAAAAEAAkAAAAAAAAAAEAEAAoAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAAAAEA=")
+tile_set = SubResource("TileSet_iv0vr")
+
+[node name="Backgroundtrees5" type="Sprite2D" parent="." unique_id=1823471072]
+modulate = Color(0.28620884, 0.20092526, 0.032482143, 1)
+position = Vector2(271, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("1_bajiw")
+hframes = 2
+vframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=131336337]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 27.0
+offset_right = 249.69841
+offset_bottom = 55.571426
+scale = Vector2(2.52, 2.8000002)
+bbcode_enabled = true
+text = "[wave]Hopper's Trap"
+scroll_active = false
+
+[node name="play2" type="RichTextLabel" parent="." unique_id=90144719]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 134.00002
+offset_right = 276.5
+offset_bottom = 156.22224
+scale = Vector2(2.08, 1.9599999)
+bbcode_enabled = true
+text = "Play"
+scroll_active = false
+
+[node name="quit2" type="RichTextLabel" parent="." unique_id=1009901425]
+layout_mode = 0
+offset_left = 238.00002
+offset_top = 180.0
+offset_right = 275.5
+offset_bottom = 201.11111
+scale = Vector2(2.08, 1.9599987)
+bbcode_enabled = true
+text = "Quit"
+scroll_active = false
+
+[node name="Settings" type="RichTextLabel" parent="." unique_id=631426250]
+layout_mode = 0
+offset_left = 135.00002
+offset_top = 226.0
+offset_right = 198.94232
+offset_bottom = 248.77777
+scale = Vector2(2.08, 1.9200023)
+bbcode_enabled = true
+text = "Settings"
+scroll_active = false
+
+[node name="Credits2" type="RichTextLabel" parent="." unique_id=1580412558]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 229.00002
+offset_right = 366.86536
+offset_bottom = 269.0
+scale = Vector2(2.08, 1.88)
+bbcode_enabled = true
+text = "Credits"
+scroll_active = false
+
+[node name="play" type="Button" parent="." unique_id=197686291]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 204.0
+offset_top = 140.0
+offset_right = 345.0
+offset_bottom = 179.0
+
+[node name="quit" type="Button" parent="." unique_id=1126824118]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 205.0
+offset_top = 187.0
+offset_right = 346.0
+offset_bottom = 226.0
+
+[node name="Setings" type="Button" parent="." unique_id=127988307]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 233.0
+offset_right = 271.0
+offset_bottom = 272.0
+
+[node name="Credits" type="Button" parent="." unique_id=259819245]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 286.0
+offset_top = 233.0
+offset_right = 427.0
+offset_bottom = 272.0
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Setings" to="." method="_on_setings_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

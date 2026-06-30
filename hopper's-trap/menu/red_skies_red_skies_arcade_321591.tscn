@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2oxc0uax6mt4"]
+
+[ext_resource type="AudioStream" uid="uid://rpp2ipk4qmub" path="res://sound/red_skies-red-skies-arcade-321591.mp3" id="1_gil3x"]
+[ext_resource type="Script" uid="uid://bkm1ab4evgmec" path="res://menu/red_skies_red_skies_arcade_321591.gd" id="2_kc4uw"]
+
+[node name="RedSkiesRedSkiesArcade321591" type="AudioStreamPlayer2D" unique_id=1532003750]
+stream = ExtResource("1_gil3x")
+autoplay = true
+script = ExtResource("2_kc4uw")

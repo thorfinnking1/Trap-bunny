@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Hopper's Trap"
-run/main_scene="uid://daxn4oulnv1mk"
+run/main_scene="uid://d1yb3e22vppck"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
 Gl="*uid://cbvp2btwpsu7i"
 Scenemanager="*uid://bnj2c7y28gbkb"
+RedSkiesRedSkiesArcade321591="*uid://c2oxc0uax6mt4"
 
 [display]
 
@@ -35,6 +36,7 @@ folder_colors={
 "res://Sprites/": "red",
 "res://globals/": "green",
 "res://levels/": "purple",
+"res://menu/": "purple",
 "res://reusable/": "pink",
 "res://sound/": "orange"
 }

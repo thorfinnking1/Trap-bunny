@@ -1,16 +1,18 @@
 [gd_scene format=4 uid="uid://bvjawcbjjkjxm"]
 
-[ext_resource type="Script" uid="uid://c65eiti6xsx7q" path="res://levels/bearboss/bearagent.gd" id="1_bnkjt"]
+[ext_resource type="Script" uid="uid://c65eiti6xsx7q" path="res://Levels/bearboss/bearagent.gd" id="1_bnkjt"]
 [ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="1_q2ncy"]
-[ext_resource type="Texture2D" uid="uid://0rb0vrqi35t3" path="res://levels/Runner Boss/props.png" id="2_1aqqy"]
-[ext_resource type="Script" path="res://Player/forced1dirPlr2.gd" id="3_f4sjv"]
+[ext_resource type="Texture2D" uid="uid://0rb0vrqi35t3" path="res://Levels/Runner Boss/props.png" id="2_1aqqy"]
+[ext_resource type="Script" uid="uid://bk16ggwou3cab" path="res://Player/forced1dirPlr2.gd" id="3_f4sjv"]
 [ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="3_vb755"]
 [ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="4_vb755"]
-[ext_resource type="Texture2D" uid="uid://f58ggmpn03ll" path="res://levels/bearboss/bearboss.png" id="6_m0y4x"]
-[ext_resource type="Texture2D" uid="uid://d2f4yooybjtm8" path="res://levels/bearboss/slashattack.png" id="6_sjw11"]
-[ext_resource type="Texture2D" uid="uid://3t2754tixsmd" path="res://levels/bearboss/sleepingbear.png" id="7_u6fll"]
+[ext_resource type="Texture2D" uid="uid://f58ggmpn03ll" path="res://Levels/bearboss/bearboss.png" id="6_m0y4x"]
+[ext_resource type="Texture2D" uid="uid://d2f4yooybjtm8" path="res://Levels/bearboss/slashattack.png" id="6_sjw11"]
+[ext_resource type="Texture2D" uid="uid://3t2754tixsmd" path="res://Levels/bearboss/sleepingbear.png" id="7_u6fll"]
+[ext_resource type="AudioStream" uid="uid://dm2dcuin20aes" path="res://sound/jl_234-mi-cancion-d-451452.mp3" id="10_wq2dj"]
+[ext_resource type="Script" uid="uid://b6085fw3e0kii" path="res://menu/soundcontrol.gd" id="11_u6rm4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4sjv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45q2l"]
 texture = ExtResource("2_1aqqy")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -27,7 +29,7 @@ texture_region_size = Vector2i(32, 32)
 0:3/0 = 0
 1:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m0y4x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qeyso"]
 texture = ExtResource("3_vb755")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -36,8 +38,8 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_vb755"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_f4sjv")
-sources/1 = SubResource("TileSetAtlasSource_m0y4x")
+sources/0 = SubResource("TileSetAtlasSource_45q2l")
+sources/1 = SubResource("TileSetAtlasSource_qeyso")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6fll"]
 atlas = ExtResource("6_m0y4x")
@@ -1003,6 +1005,14 @@ libraries/ = SubResource("AnimationLibrary_535lp")
 speed_scale = 5.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1733111724]
+
+[node name="Jl234MiCancionD451452" type="AudioStreamPlayer" parent="." unique_id=1832503208]
+stream = ExtResource("10_wq2dj")
+autoplay = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=737425332 node_paths=PackedStringArray("sound")]
+script = ExtResource("11_u6rm4")
+sound = NodePath("../Jl234MiCancionD451452")
 
 [connection signal="body_entered" from="bear/find" to="." method="_on_find_body_entered"]
 [connection signal="body_entered" from="bear/kill" to="." method="_on_kill_body_entered"]

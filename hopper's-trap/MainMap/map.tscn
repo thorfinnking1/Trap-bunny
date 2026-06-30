@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://daxn4oulnv1mk"]
 
+[ext_resource type="Script" uid="uid://b6085fw3e0kii" path="res://menu/soundcontrol.gd" id="1_6gf01"]
 [ext_resource type="PackedScene" uid="uid://k5avkqcagj6p" path="res://Player/player.tscn" id="1_8mg85"]
 [ext_resource type="Texture2D" uid="uid://2vddnw2wh4x1" path="res://MainMap/mapforest.png" id="1_kkc7k"]
 [ext_resource type="Script" uid="uid://c8u7a5l2x63vm" path="res://MainMap/TeleportToLvl.gd" id="2_kkc7k"]
 [ext_resource type="Texture2D" uid="uid://cnjn3hgqpdr5n" path="res://reusable/traps/beartrap16.png" id="4_ftx8i"]
 [ext_resource type="Texture2D" uid="uid://bflkkvo8loxnw" path="res://reusable/misc/warning16.png" id="5_6burw"]
 [ext_resource type="Texture2D" uid="uid://dulhpl7uh0b6w" path="res://reusable/traps/hole16.png" id="6_d8vpp"]
-[ext_resource type="Script" uid="uid://cr2p85y457htb" path="res://reusable/misc/wizardrunner.gd" id="7_kdscj"]
+[ext_resource type="Texture2D" uid="uid://cp8um1t0dwx02" path="res://Levels/Runner Boss/hunter1.png" id="6_tnyfk"]
+[ext_resource type="Script" path="res://reusable/misc/wizardrunner.gd" id="7_kdscj"]
 [ext_resource type="Texture2D" uid="uid://cijnn826ilb77" path="res://reusable/misc/wizard16.png" id="8_x5fgq"]
+[ext_resource type="AudioStream" uid="uid://7jirqc7ryn6h" path="res://sound/brutaldesign-chiptune-piano-retro-507008.mp3" id="9_x5fgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftx8i"]
 size = Vector2(22, 23)
@@ -378,7 +381,9 @@ _data = {
 &"RESET": SubResource("Animation_x5fgq")
 }
 
-[node name="Map" type="Node2D" unique_id=1794455850]
+[node name="Map" type="Node2D" unique_id=1794455850 node_paths=PackedStringArray("sound")]
+script = ExtResource("1_6gf01")
+sound = NodePath("BrutaldesignChiptunePianoRetro507008")
 
 [node name="ground" type="Sprite2D" parent="." unique_id=1117635765]
 position = Vector2(192, 144)
@@ -462,10 +467,22 @@ plr = NodePath("../../Player")
 position = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_yjngi")
 
-[node name="ColorRect" type="ColorRect" parent="levels/fight1" unique_id=341821831]
-offset_right = 14.0
-offset_bottom = 14.0
-color = Color(0.14622876, 0.14622876, 0.14622873, 1)
+[node name="body" type="Sprite2D" parent="levels/fight1" unique_id=1292718049]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0.19999677, 12.39999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_tnyfk")
+hframes = 4
+vframes = 3
+
+[node name="arms" type="Sprite2D" parent="levels/fight1" unique_id=1459248611]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2.6999977, 13.39999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_tnyfk")
+hframes = 4
+vframes = 3
+frame = 4
 
 [node name="fight2" type="Area2D" parent="levels" unique_id=1119542829 node_paths=PackedStringArray("CLayer", "plr")]
 position = Vector2(158, 72)
@@ -686,6 +703,10 @@ frame_progress = 0.4801442
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wizard" unique_id=2079983919]
 libraries/ = SubResource("AnimationLibrary_6gf01")
 autoplay = &"RESET"
+
+[node name="BrutaldesignChiptunePianoRetro507008" type="AudioStreamPlayer" parent="." unique_id=1197206629]
+stream = ExtResource("9_x5fgq")
+autoplay = true
 
 [connection signal="body_entered" from="levels/hop-n-run" to="levels/hop-n-run" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight1" to="levels/fight1" method="_on_body_entered"]

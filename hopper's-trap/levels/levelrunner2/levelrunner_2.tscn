@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://bo5x2mpi288dx"]
 
-[ext_resource type="Script" uid="uid://cnonfvqfml0yn" path="res://levels/levelrunner/trapspawner.gd" id="1_eh78a"]
+[ext_resource type="Script" uid="uid://cnonfvqfml0yn" path="res://Levels/levelrunner/trapspawner.gd" id="1_eh78a"]
 [ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="1_ukrmj"]
 [ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="2_eh78a"]
 [ext_resource type="Script" uid="uid://6t25p3ba0so7" path="res://Player/forced1dirPlr.gd" id="3_3g0rm"]
 [ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="4_0nh7f"]
 [ext_resource type="PackedScene" uid="uid://b4qbbdekef3q3" path="res://reusable/traps/beartrap.tscn" id="5_5gmyb"]
 [ext_resource type="Texture2D" uid="uid://binntxnjnbtvu" path="res://Player/burrow.png" id="6_euga7"]
+[ext_resource type="AudioStream" uid="uid://bqpv76t20e0y5" path="res://sound/onepeopleentertainment-a-big-world-238961 (2).mp3" id="8_50ev3"]
+[ext_resource type="Script" uid="uid://b6085fw3e0kii" path="res://menu/soundcontrol.gd" id="9_gs0wx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0rlrb"]
 tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1073741824, 131072, 0, 0, 196608, 0, 0, 262144, 0, 1073741824, 1, 0, 1, 65537, 0, 1073741824, 131073, 0, 536870912, 196609, 0, 0, 262145, 0, 0, 2, 0, 1, 65538, 0, 1073741824, 131074, 0, 268435456, 196610, 0, 0, 262146, 0, 0, 3, 0, 268435457, 65539, 0, 0, 131075, 0, 268435456, 196611, 0, 0, 262147, 0, 1073741824)
@@ -496,5 +498,13 @@ color = Color(1, 1, 1, 0)
 [node name="hitanimation" type="AnimationPlayer" parent="." unique_id=1022290385]
 libraries/ = SubResource("AnimationLibrary_mj0is")
 speed_scale = 5.0
+
+[node name="OnepeopleentertainmentABigWorld238961(2)" type="AudioStreamPlayer" parent="." unique_id=516252291]
+stream = ExtResource("8_50ev3")
+autoplay = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1387826671 node_paths=PackedStringArray("sound")]
+script = ExtResource("9_gs0wx")
+sound = NodePath("../OnepeopleentertainmentABigWorld238961(2)")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

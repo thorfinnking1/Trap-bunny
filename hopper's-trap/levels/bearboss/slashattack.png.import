@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2f4yooybjtm8"
-path="res://.godot/imported/slashattack.png-33417f81ac7ab2b77febca3e131dc472.ctex"
+path="res://.godot/imported/slashattack.png-1f4992e8f387aa02253361cc025ddafa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/bearboss/slashattack.png"
-dest_files=["res://.godot/imported/slashattack.png-33417f81ac7ab2b77febca3e131dc472.ctex"]
+source_file="res://Levels/bearboss/slashattack.png"
+dest_files=["res://.godot/imported/slashattack.png-1f4992e8f387aa02253361cc025ddafa.ctex"]
 
 [params]
 
