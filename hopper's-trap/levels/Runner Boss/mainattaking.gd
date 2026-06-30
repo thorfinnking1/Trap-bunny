@@ -6,12 +6,16 @@ var dead=false
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var hitanimation: AnimationPlayer = $hitanimation
+#shot-a-bun
+
+@onready var animation_player_2: AnimationPlayer = $enemy/AnimationPlayer2
 
 @onready var health_and_slash: Sprite2D = $HealthAndSlash
 const DEADSCREEN = preload("uid://dpuabxnjo6c4p")
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("plr"):
+		animation_player_2.play("hit")
 		bosshp+=10.0
 		health_and_slash.frame=int(5.0*(bosshp/100))
 		if bosshp>=100:

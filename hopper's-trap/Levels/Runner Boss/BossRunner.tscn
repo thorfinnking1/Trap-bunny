@@ -192,6 +192,44 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vpt3"]
 size = Vector2(14, 54.5)
 
+[sub_resource type="Animation" id="Animation_punjn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5n5ft"]
+resource_name = "hit"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.3882353, 0.54901963, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bovuk"]
+_data = {
+&"RESET": SubResource("Animation_punjn"),
+&"hit": SubResource("Animation_5n5ft")
+}
+
 [sub_resource type="Animation" id="Animation_if5fy"]
 length = 0.001
 tracks/0/type = "value"
@@ -437,6 +475,9 @@ libraries/ = SubResource("AnimationLibrary_yqlas")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Area2D2" unique_id=1456407902]
 position = Vector2(-0.5, -27.25)
 shape = SubResource("RectangleShape2D_4vpt3")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="enemy" unique_id=271662437]
+libraries/ = SubResource("AnimationLibrary_bovuk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1129239100]
 
