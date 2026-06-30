@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cnjn3hgqpdr5n" path="res://reusable/traps/beartrap16.png" id="4_ftx8i"]
 [ext_resource type="Texture2D" uid="uid://bflkkvo8loxnw" path="res://reusable/misc/warning16.png" id="5_6burw"]
 [ext_resource type="Texture2D" uid="uid://dulhpl7uh0b6w" path="res://reusable/traps/hole16.png" id="6_d8vpp"]
+[ext_resource type="Script" uid="uid://cr2p85y457htb" path="res://reusable/misc/wizardrunner.gd" id="7_kdscj"]
+[ext_resource type="Texture2D" uid="uid://cijnn826ilb77" path="res://reusable/misc/wizard16.png" id="8_x5fgq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftx8i"]
 size = Vector2(22, 23)
@@ -92,6 +94,289 @@ size = Vector2(27, 27)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkc7k"]
 radius = 5.998741
 height = 17.955215
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdscj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gf01"]
+atlas = ExtResource("8_x5fgq")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnyfk"]
+atlas = ExtResource("8_x5fgq")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ple66"]
+atlas = ExtResource("8_x5fgq")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxd3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gf01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnyfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ple66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kdscj"]
+resource_name = "0"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Wizard16:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666665, 0.33333337, 0.40000004, 0.4666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 0, 1, 2, 1, 0, 1, 2, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Wizard16:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.56666666, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(155, 167), Vector2(154.11765, 166.94118), Vector2(153.23529, 166.88235), Vector2(152.35294, 166.82353), Vector2(151.47058, 166.76471), Vector2(150.58823, 166.70589), Vector2(149.70587, 166.64706), Vector2(148.82352, 166.58824), Vector2(147.94116, 166.52942), Vector2(147.0588, 166.4706), Vector2(146.17645, 166.41177), Vector2(145.2941, 166.35295), Vector2(144.41174, 166.29413), Vector2(143.52939, 166.2353), Vector2(142.64703, 166.17648), Vector2(141.7647, 166.11766), Vector2(140.88234, 166.05882), Vector2(140, 166), Vector2(237, 188)]
+}
+
+[sub_resource type="Animation" id="Animation_6gf01"]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(237, 188), Vector2(237.2143, 189.7143), Vector2(237.42857, 191.42857), Vector2(237.64285, 193.14285), Vector2(237.85715, 194.85715), Vector2(238.07143, 196.57143), Vector2(238.2857, 198.2857), Vector2(238.5, 200), Vector2(238.7143, 201.7143), Vector2(238.92857, 203.42857), Vector2(239.14287, 205.14287), Vector2(239.35715, 206.85715), Vector2(239.57144, 208.57144), Vector2(239.78572, 210.28572), Vector2(240, 212), Vector2(116, 83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Wizard16:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 0, 1, 2, 1, 0, 1, 2, 4]
+}
+
+[sub_resource type="Animation" id="Animation_tnyfk"]
+resource_name = "2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(116, 83), Vector2(115.125, 83), Vector2(114.25, 83), Vector2(113.375, 83), Vector2(112.5, 83), Vector2(111.625, 83), Vector2(110.75, 83), Vector2(109.875, 83), Vector2(109, 83), Vector2(108.125, 83), Vector2(107.25, 83), Vector2(106.375, 83), Vector2(105.5, 83), Vector2(104.625, 83), Vector2(103.75, 83), Vector2(102.875, 83), Vector2(102, 83), Vector2(83, 209)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Wizard16:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 0, 1, 2, 1, 0, 1, 2, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/Wizard16:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ple66"]
+resource_name = "3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(83, 209), Vector2(82.5625, 210.6875), Vector2(82.125, 212.375), Vector2(81.6875, 214.0625), Vector2(81.25, 215.75), Vector2(80.8125, 217.4375), Vector2(80.375, 219.125), Vector2(79.9375, 220.8125), Vector2(79.5, 222.5), Vector2(79.0625, 224.1875), Vector2(78.625, 225.875), Vector2(78.1875, 227.5625), Vector2(77.75, 229.25), Vector2(77.3125, 230.9375), Vector2(76.875, 232.625), Vector2(76.4375, 234.3125), Vector2(76, 236), Vector2(140, 165), Vector2(145, 165.66667), Vector2(150, 166.33334), Vector2(151.66667, 166.55556), Vector2(153.33334, 166.77779), Vector2(155, 167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Wizard16:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 0, 1, 2, 1, 0, 1, 2, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/Wizard16:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x5fgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Wizard16:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Wizard16:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gf01"]
+_data = {
+&"0": SubResource("Animation_kdscj"),
+&"1": SubResource("Animation_6gf01"),
+&"2": SubResource("Animation_tnyfk"),
+&"3": SubResource("Animation_ple66"),
+&"RESET": SubResource("Animation_x5fgq")
+}
 
 [node name="Map" type="Node2D" unique_id=1794455850]
 
@@ -377,7 +662,33 @@ text = "[b][color=black][wave][wave]hello this game is not finished,
 it currently has 4 levels"
 horizontal_alignment = 1
 
+[node name="wizard" type="Node2D" parent="." unique_id=1268458454]
+script = ExtResource("7_kdscj")
+
+[node name="Area2D" type="Area2D" parent="wizard" unique_id=1793184185]
+position = Vector2(155, 167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wizard/Area2D" unique_id=166452636]
+shape = SubResource("CircleShape2D_kdscj")
+
+[node name="Wizard16" type="Sprite2D" parent="wizard/Area2D" unique_id=1002849981]
+texture = ExtResource("8_x5fgq")
+flip_h = true
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wizard/Area2D/Wizard16" unique_id=2117624037]
+sprite_frames = SubResource("SpriteFrames_kxd3p")
+autoplay = "default"
+frame_progress = 0.4801442
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wizard" unique_id=2079983919]
+libraries/ = SubResource("AnimationLibrary_6gf01")
+autoplay = &"RESET"
+
 [connection signal="body_entered" from="levels/hop-n-run" to="levels/hop-n-run" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight1" to="levels/fight1" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight2" to="levels/fight2" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/hop-run2" to="levels/hop-run2" method="_on_body_entered"]
+[connection signal="body_entered" from="wizard/Area2D" to="wizard" method="_on_area_2d_body_entered"]
