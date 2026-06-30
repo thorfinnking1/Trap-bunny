@@ -1,7 +1,7 @@
 extends Node2D
 
 var bosshp=0.0
-var hp=3
+var hp=2
 var dead=false
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
