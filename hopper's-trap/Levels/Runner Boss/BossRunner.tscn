@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://l1udnvhn4e80"]
 
-[ext_resource type="Texture2D" uid="uid://hh44u2mhdc7j" path="res://Levels/Runner Boss/sky.png" id="1_lemn5"]
-[ext_resource type="Texture2D" uid="uid://0rb0vrqi35t3" path="res://Levels/Runner Boss/props.png" id="2_a7vrh"]
-[ext_resource type="Script" uid="uid://bk16ggwou3cab" path="res://Player/forced1dirPlr2.gd" id="3_6r3ov"]
+[ext_resource type="Texture2D" uid="uid://hh44u2mhdc7j" path="res://levels/Runner Boss/sky.png" id="1_lemn5"]
+[ext_resource type="Texture2D" uid="uid://0rb0vrqi35t3" path="res://levels/Runner Boss/props.png" id="2_a7vrh"]
+[ext_resource type="Script" path="res://Player/forced1dirPlr2.gd" id="3_6r3ov"]
 [ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="4_jv1b3"]
-[ext_resource type="Texture2D" uid="uid://bip25p7ajgg63" path="res://Levels/Runner Boss/health and slash.png" id="5_4vpt3"]
-[ext_resource type="Texture2D" uid="uid://cp8um1t0dwx02" path="res://Levels/Runner Boss/hunter1.png" id="5_jv1b3"]
+[ext_resource type="Texture2D" uid="uid://bip25p7ajgg63" path="res://levels/Runner Boss/health and slash.png" id="5_4vpt3"]
+[ext_resource type="Texture2D" uid="uid://cp8um1t0dwx02" path="res://levels/Runner Boss/hunter1.png" id="5_jv1b3"]
 [ext_resource type="Script" uid="uid://daibsgmmtwg8h" path="res://Levels/Runner Boss/enemy.gd" id="5_knhjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6r3ov"]
@@ -15,6 +15,7 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -5.1079865, 16, -4.8202133, 16, 16, -16, 16)
 1:0/0 = 0
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -26,7 +27,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_jv1b3"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_6r3ov")
 
 [sub_resource type="Animation" id="Animation_mr4o5"]
@@ -91,11 +93,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vpt3"]
-height = 86.0
+height = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjy"]
-radius = 2.0
-height = 5.0
+radius = 4.5
+height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knhjy"]
 size = Vector2(124.5, 61)
@@ -125,18 +127,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:bullets")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_yqlas"]
@@ -171,22 +161,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [6, 7, 8, 7, 8, 7, 4]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:bullets")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5100183, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
 
 [sub_resource type="Animation" id="Animation_4vpt3"]
 resource_name = "walking"
-length = 0.65
+length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -291,7 +269,7 @@ texture = ExtResource("1_lemn5")
 [node name="ground" type="TileMapLayer" parent="Background" unique_id=642345716]
 z_index = -1
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAAAQAAQABAAAAAAABAAQAAQABAAAAAAACAAQAAQABAAAAAAADAAQAAQABAAAAAAAEAAQAAQABAAAAAAAFAAQAAQABAAAAAAAGAAQAAQABAAAAAAAHAAQAAQABAAAAABAIAAQAAQABAAAAAAAAAAUAAQACAAAAAAABAAUAAQACAAAAAAACAAUAAQACAAAAAAADAAUAAQACAAAAAAAEAAUAAQACAAAAAAAFAAUAAQACAAAAAAAGAAUAAQACAAAAAAAHAAUAAQACAAAAAAAIAAUAAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAQAAQABAAAAAAABAAQAAQABAAAAAAACAAQAAQABAAAAAAADAAQAAQABAAAAAAAEAAQAAQABAAAAAAAFAAQAAQABAAAAAAAGAAQAAQABAAAAAAAHAAQAAQABAAAAABAIAAQAAQABAAAAAAAAAAUAAQACAAAAAAABAAUAAQACAAAAAAACAAUAAQACAAAAAAADAAUAAQACAAAAAAAEAAUAAQACAAAAAAAFAAUAAQACAAAAAAAGAAUAAQACAAAAAAAHAAUAAQACAAAAAAAIAAUAAQACAAAAAAD//wUAAQACAAAAAAD//wQAAQACAAAAAAD//wMAAQACAAAAAAD//wIAAQACAAAAAAD//wEAAQACAAAAAAD//wAAAQACAAAAAAAJAAUAAQACAAAAAAAJAAQAAQACAAAAAAAJAAMAAQACAAAAAAAJAAIAAQACAAAAAAAJAAEAAQACAAAAAAAJAAAAAQACAAAAAAD/////AQACAAAAAAAAAP//AQACAAAAAAABAP//AQACAAAAAAACAP//AQACAAAAAAADAP//AQACAAAAAAAEAP//AQACAAAAAAAFAP//AQACAAAAAAAGAP//AQACAAAAAAAHAP//AQACAAAAAAAIAP//AQACAAAAAAAJAP//AQACAAAAAAA=")
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Background" unique_id=1569297981]
@@ -340,7 +318,7 @@ frame = 4
 libraries/ = SubResource("AnimationLibrary_4vpt3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=2050307732]
-position = Vector2(-35, -40)
+position = Vector2(-16, -31)
 shape = SubResource("CapsuleShape2D_4vpt3")
 
 [node name="HealthAndSlash" type="Sprite2D" parent="." unique_id=1730628354]
@@ -354,8 +332,9 @@ vframes = 5
 [node name="enemy" type="CharacterBody2D" parent="." unique_id=1320393551 node_paths=PackedStringArray("plr") groups=["Enemy"]]
 position = Vector2(12, 267)
 scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("5_knhjy")
-bullets = 2
 plr = NodePath("../bunbun")
 
 [node name="body" type="Sprite2D" parent="enemy" unique_id=20568030]
@@ -372,7 +351,7 @@ vframes = 3
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=194727806]
-position = Vector2(-2, -2.5)
+position = Vector2(-2, -16)
 shape = SubResource("CapsuleShape2D_knhjy")
 
 [node name="Timer" type="Timer" parent="enemy" unique_id=414831933]
@@ -394,10 +373,8 @@ libraries/ = SubResource("AnimationLibrary_yqlas")
 position = Vector2(-1.25, -5)
 shape = SubResource("RectangleShape2D_4vpt3")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1387176396]
-
-[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1296697350]
-polygon = PackedVector2Array(-3, -10, 0, 403, 582, 397, 579, -43, 632, -37, 641, 424, -45, 431, -55, -7)
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1801249265]
+position = Vector2(492, 253)
 
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_exited"]

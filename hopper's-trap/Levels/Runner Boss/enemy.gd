@@ -20,9 +20,8 @@ func _ready() -> void:
 	choose_target()
 
 func choose_target():
-	target_x = movement.randi_range(50, 534)
+	target_x = movement.randi_range(76, 490)
 	moving = true
-	print("New target picked: ", target_x)
 
 func _physics_process(delta: float) -> void:
 	# 1. Apply Gravity
@@ -47,12 +46,12 @@ func _physics_process(delta: float) -> void:
 			$body.flip_h  = true
 			$arms.flip_h = true
 			$arms.position.x = -12
-			$Area2D/CollisionShape2D.position.x  = -$Area2D/CollisionShape2D.position.x
+			$Area2D/CollisionShape2D.position.x  = -67
 		else :
 			$body.flip_h  = false
 			$arms.flip_h = false
 			$arms.position.x = 12
-			$Area2D/CollisionShape2D.position.x  = $Area2D/CollisionShape2D.position.x
+			$Area2D/CollisionShape2D.position.x  = 67
 	
 	move_and_slide()
 
@@ -65,38 +64,40 @@ func shoot():
 	if shootingArea and bullets !=0:
 		var bulletScene = preload("res://Levels/Runner Boss/bulet.tscn")
 		var bullet = bulletScene.instantiate()
-		bullet.plr_pos = $"../bunbun".global_position
-		add_child(bullet)
-		bullet.global_position = $arms.global_position 
+		bullet.plr_pos = $"../bunbun".global_position+Vector2(0,-5)
+		call_deferred("add_child",bullet)
+		bullet.global_position = $arms.position +Vector2(0,-25)
 		ani.play("Shoot")
 		bullets -=1
 		timershoot.start(1)
 		await timershoot.timeout
 		shoot()
+
 func _process(_delta: float) -> void:
 	# Only reload if out of bullets AND we aren't already reloading
-	if bullets <= 0 and not is_reloading:
+	if shootingArea and bullets>=2:
+		velocity.x = 0
+		ani.play("RESET")
+		if bullets >=1:
+			shoot()
+		else:
+			is_reloading=false
+	elif bullets <= 0 and not is_reloading:
 		reload()
 
 func reload():
 	is_reloading = true # Lock the reload process
-	print("Reloading started...")
 	
 	ani.play("reload")
+	bullets=2
 	
-	# Wait right here until the reload animation completely finishes
 	await ani.animation_finished
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	shootingArea = true
 	if body.is_in_group("plr"):
-		if bullets >=1:
-			shoot()
-		velocity.x = 0
-		if !ani.is_playing():
-			ani.play("RESET")
-	move_and_slide()
-
+		shootingArea = true
+		
+		#if !ani.is_playing():
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("plr"):
