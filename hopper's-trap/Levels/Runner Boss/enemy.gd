@@ -23,10 +23,7 @@ func choose_target():
 	target_x = movement.randi_range(76, 490)
 	moving = true
 
-func _physics_process(delta: float) -> void:
-	# 1. Apply Gravity
-	if not is_on_floor():
-		velocity.y += get_gravity().y * delta
+func _physics_process(_delta: float) -> void:
 
 	# 2. Handle Movement
 	if moving and !shootingArea:
