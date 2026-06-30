@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bip25p7ajgg63"
-path="res://.godot/imported/health and slash.png-9ff0e1c9db5b14f06b3c98ce0acef797.ctex"
+path="res://.godot/imported/health and slash.png-f7cc4a73a9dba08453ebe2433a40f45f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Runner Boss/health and slash.png"
-dest_files=["res://.godot/imported/health and slash.png-9ff0e1c9db5b14f06b3c98ce0acef797.ctex"]
+source_file="res://levels/Runner Boss/health and slash.png"
+dest_files=["res://.godot/imported/health and slash.png-f7cc4a73a9dba08453ebe2433a40f45f.ctex"]
 
 [params]
 
