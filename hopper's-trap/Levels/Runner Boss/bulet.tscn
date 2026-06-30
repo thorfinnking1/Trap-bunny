@@ -3,23 +3,24 @@
 [ext_resource type="Script" uid="uid://dhmaf82flp0ui" path="res://levels/Runner Boss/bulet.gd" id="1_w4enp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4kyv"]
-size = Vector2(10, 8)
+size = Vector2(8, 6)
 
 [sub_resource type="SphereMesh" id="SphereMesh_t7hgm"]
 is_hemisphere = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=750267340]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_w4enp")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=225704667]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1066499144]
-position = Vector2(5, 0)
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_w4kyv")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=888556991]
-position = Vector2(-2.6456347, 0.037967563)
+position = Vector2(-1, -2.3283064e-10)
 rotation = -1.5779543
-scale = Vector2(7.7358747, 12.688773)
+scale = Vector2(6.2197137, 8.865303)
 mesh = SubResource("SphereMesh_t7hgm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
