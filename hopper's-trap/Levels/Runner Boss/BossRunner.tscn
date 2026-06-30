@@ -29,10 +29,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_6r3ov")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_knhjy"]
-radius = 7.349
-height = 22.916
-
 [sub_resource type="Animation" id="Animation_mr4o5"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,34 +46,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance2D:mesh:height")
+tracks/1/path = NodePath("Rabbit/ears:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [22.916]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance2D:mesh:radius")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [7.349]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rabbit/ears:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -102,34 +74,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance2D:mesh:height")
+tracks/1/path = NodePath("Rabbit/ears:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [22.916, 22.916, 9.218, 22.916]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance2D:mesh:radius")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [7.349, 7.349, 4.609, 7.349]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rabbit/ears:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.9, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
@@ -146,8 +94,8 @@ _data = {
 radius = 13.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knhjy"]
-radius = 6.0
-height = 63.0
+radius = 2.0
+height = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knhjy"]
 size = Vector2(124.5, 61)
@@ -165,6 +113,75 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arms:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:bullets")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_yqlas"]
+resource_name = "Shoot"
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arms:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5025457, 0.96276736),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_xx3rf"]
+resource_name = "reload"
+length = 3.0
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arms:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5005677, 1.0042835, 1.4993408, 1.9791121, 2.464363, 2.9637954),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 7, 8, 7, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:bullets")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5100183, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_4vpt3"]
@@ -187,19 +204,26 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yqlas"]
 _data = {
 &"RESET": SubResource("Animation_knhjy"),
+&"Shoot": SubResource("Animation_yqlas"),
+&"reload": SubResource("Animation_xx3rf"),
 &"walking": SubResource("Animation_4vpt3")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vpt3"]
+size = Vector2(7.5, 10)
 
 [node name="Node2D" type="Node2D" unique_id=1511033087]
 
 [node name="Background" type="Node" parent="." unique_id=1826026693]
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=1326270772]
+z_index = -1
 offset_right = 579.0
 offset_bottom = 388.0
 color = Color(0, 0.54217625, 0.54217625, 1)
 
 [node name="clouds" type="Parallax2D" parent="Background" unique_id=645927367]
+z_index = -1
 scroll_offset = Vector2(0, -2)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(20, 0)
@@ -210,6 +234,7 @@ position = Vector2(174, 141)
 texture = ExtResource("1_lemn5")
 
 [node name="clouds2" type="Parallax2D" parent="Background" unique_id=897335525]
+z_index = -1
 scroll_offset = Vector2(114, 4)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(20, 0)
@@ -220,6 +245,7 @@ position = Vector2(174, 141)
 texture = ExtResource("1_lemn5")
 
 [node name="clouds3" type="Parallax2D" parent="Background" unique_id=1841356905]
+z_index = -1
 scroll_offset = Vector2(-255, -39)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(20, 0)
@@ -230,6 +256,7 @@ position = Vector2(174, 141)
 texture = ExtResource("1_lemn5")
 
 [node name="clouds4" type="Parallax2D" parent="Background" unique_id=2098862427]
+z_index = -1
 scroll_offset = Vector2(48, -72)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(20, 0)
@@ -240,6 +267,7 @@ position = Vector2(174, 141)
 texture = ExtResource("1_lemn5")
 
 [node name="clouds5" type="Parallax2D" parent="Background" unique_id=1646418839]
+z_index = -1
 scroll_offset = Vector2(-171, 29)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(20, 0)
@@ -250,6 +278,7 @@ position = Vector2(174, 141)
 texture = ExtResource("1_lemn5")
 
 [node name="clouds6" type="Parallax2D" parent="Background" unique_id=1973070605]
+z_index = -1
 scroll_offset = Vector2(0, -2)
 repeat_size = Vector2(578, 0)
 autoscroll = Vector2(30, 0)
@@ -260,43 +289,38 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_lemn5")
 
 [node name="ground" type="TileMapLayer" parent="Background" unique_id=642345716]
+z_index = -1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAQAAQABAAAAAAABAAQAAQABAAAAAAACAAQAAQABAAAAAAADAAQAAQABAAAAAAAEAAQAAQABAAAAAAAFAAQAAQABAAAAAAAGAAQAAQABAAAAAAAHAAQAAQABAAAAABAIAAQAAQABAAAAAAAAAAUAAQACAAAAAAABAAUAAQACAAAAAAACAAUAAQACAAAAAAADAAUAAQACAAAAAAAEAAUAAQACAAAAAAAFAAUAAQACAAAAAAAGAAUAAQACAAAAAAAHAAUAAQACAAAAAAAIAAUAAQACAAAAAAA=")
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Background" unique_id=1569297981]
 modulate = Color(0, 0.50017554, 0.113236435, 1)
+z_index = -1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAABAIAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAACAAQAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="TileMapLayer5" type="TileMapLayer" parent="Background" unique_id=1065955172]
 modulate = Color(0, 0.50017554, 0.113236435, 1)
+z_index = -1
 position = Vector2(0, 22)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAABAAMAAQACAAEAAAAHAAMAAQACAAEAABA=")
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="Background" unique_id=1809460473]
+z_index = -1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAQAAQAAAAEAAAAHAAQAAQABAAEAAAAEAAQAAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_jv1b3")
 
 [node name="bunbun" type="CharacterBody2D" parent="." unique_id=1317256727 groups=["plr"]]
-z_index = 1
-position = Vector2(319, 268)
+position = Vector2(342, 249)
 script = ExtResource("3_6r3ov")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="bunbun" unique_id=1923149523]
-modulate = Color(0, 0, 0, 0.2509804)
-z_index = -1
-position = Vector2(6, -6)
-rotation = 1.5707964
-scale = Vector2(2, 2)
-mesh = SubResource("CapsuleMesh_knhjy")
-
 [node name="Rabbit" type="Sprite2D" parent="bunbun" unique_id=781144856]
-position = Vector2(9, -31)
+position = Vector2(-2, -5)
 scale = Vector2(2, 2)
 texture = ExtResource("4_jv1b3")
 flip_h = true
@@ -316,7 +340,7 @@ frame = 4
 libraries/ = SubResource("AnimationLibrary_4vpt3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=2050307732]
-position = Vector2(16, -14)
+position = Vector2(5, 12)
 shape = SubResource("CircleShape2D_yqlas")
 
 [node name="HealthAndSlash" type="Sprite2D" parent="." unique_id=1730628354]
@@ -327,11 +351,12 @@ texture = ExtResource("5_4vpt3")
 hframes = 2
 vframes = 5
 
-[node name="enemy" type="CharacterBody2D" parent="." unique_id=1320393551 groups=["Enemy"]]
-z_index = 1
+[node name="enemy" type="CharacterBody2D" parent="." unique_id=1320393551 node_paths=PackedStringArray("plr") groups=["Enemy"]]
 position = Vector2(12, 267)
 scale = Vector2(2, 2)
 script = ExtResource("5_knhjy")
+bullets = 2
+plr = NodePath("../bunbun")
 
 [node name="body" type="Sprite2D" parent="enemy" unique_id=20568030]
 position = Vector2(-1.5, -32)
@@ -347,7 +372,7 @@ vframes = 3
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=194727806]
-position = Vector2(-2, -31.5)
+position = Vector2(-2, -2.5)
 shape = SubResource("CapsuleShape2D_knhjy")
 
 [node name="Timer" type="Timer" parent="enemy" unique_id=414831933]
@@ -360,6 +385,14 @@ shape = SubResource("RectangleShape2D_knhjy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemy" unique_id=30380330]
 libraries/ = SubResource("AnimationLibrary_yqlas")
+
+[node name="timershoot" type="Timer" parent="enemy" unique_id=166278756]
+
+[node name="Area2D2" type="Area2D" parent="enemy" unique_id=546651767]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Area2D2" unique_id=1456407902]
+position = Vector2(-1.25, -5)
+shape = SubResource("RectangleShape2D_4vpt3")
 
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_exited"]

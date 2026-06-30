@@ -5,6 +5,12 @@ var movement = RandomNumberGenerator.new()
 var moving = false
 var shootingArea = false
 var target_x = 0.0
+
+
+@export var bullets : int
+@export var plr : CharacterBody2D
+
+@onready var timershoot: Timer = $timershoot
 @onready var timer: Timer = $Timer
 @onready var ani: AnimationPlayer = $AnimationPlayer
 
@@ -41,12 +47,12 @@ func _physics_process(delta: float) -> void:
 			$body.flip_h  = true
 			$arms.flip_h = true
 			$arms.position.x = -12
-			$Area2D/CollisionShape2D.position.x  = -67.75
+			$Area2D/CollisionShape2D.position.x  = -$Area2D/CollisionShape2D.position.x
 		else :
 			$body.flip_h  = false
 			$arms.flip_h = false
 			$arms.position.x = 12
-			$Area2D/CollisionShape2D.position.x  = 67.75
+			$Area2D/CollisionShape2D.position.x  = $Area2D/CollisionShape2D.position.x
 	
 	move_and_slide()
 
@@ -55,12 +61,32 @@ func _on_timer_timeout() -> void:
 	if !shootingArea:
 		choose_target()
 
+func shoot():
+	if shootingArea and bullets>=1:
+		var bulletScene = preload("res://Levels/Runner Boss/bulet.tscn")
+		var bullet = bulletScene.instantiate()
+		bullet.plr_pos = $"../bunbun".global_position
+		get_parent().add_child(bullet)
+		bullet.global_position = $arms.global_position + Vector2(10, -35)
+		ani.play("Shoot")
+		bullets -=1
+		timershoot.start(2)
+		await timershoot.timeout
+		shoot()
+
+func reload():
+	ani.play("reload")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	shootingArea = true
 	if body.is_in_group("plr"):
-		shootingArea = true
+		if bullets >=1:
+			shoot()
+		else:
+			reload()
 		velocity.x = 0
-		ani.play("RESET")
+		if !ani.is_playing():
+			ani.play("RESET")
 	move_and_slide()
 
 
