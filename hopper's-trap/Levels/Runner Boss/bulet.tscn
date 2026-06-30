@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://tdqdxbniix7x"]
+
+[ext_resource type="Script" uid="uid://dhmaf82flp0ui" path="res://Levels/Runner Boss/bulet.gd" id="1_w4enp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4kyv"]
+size = Vector2(40, 40)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=750267340]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_w4enp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=58687062]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=225704667]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1066499144]
+shape = SubResource("RectangleShape2D_w4kyv")
