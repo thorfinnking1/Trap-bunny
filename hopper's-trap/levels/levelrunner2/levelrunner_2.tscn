@@ -1,0 +1,500 @@
+[gd_scene format=4 uid="uid://bo5x2mpi288dx"]
+
+[ext_resource type="Script" uid="uid://cnonfvqfml0yn" path="res://levels/levelrunner/trapspawner.gd" id="1_eh78a"]
+[ext_resource type="Texture2D" uid="uid://6uu7kmyeg7q" path="res://reusable/misc/backgroundtrees.png" id="1_ukrmj"]
+[ext_resource type="Texture2D" uid="uid://cc3j8vsxomubm" path="res://reusable/misc/noiseidk.png" id="2_eh78a"]
+[ext_resource type="Script" uid="uid://6t25p3ba0so7" path="res://Player/forced1dirPlr.gd" id="3_3g0rm"]
+[ext_resource type="Texture2D" uid="uid://bgs841o1hipf1" path="res://Player/rabbit.png" id="4_0nh7f"]
+[ext_resource type="PackedScene" uid="uid://b4qbbdekef3q3" path="res://reusable/traps/beartrap.tscn" id="5_5gmyb"]
+[ext_resource type="Texture2D" uid="uid://binntxnjnbtvu" path="res://Player/burrow.png" id="6_euga7"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0rlrb"]
+tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1073741824, 131072, 0, 0, 196608, 0, 0, 262144, 0, 1073741824, 1, 0, 1, 65537, 0, 1073741824, 131073, 0, 536870912, 196609, 0, 0, 262145, 0, 0, 2, 0, 1, 65538, 0, 1073741824, 131074, 0, 268435456, 196610, 0, 0, 262146, 0, 0, 3, 0, 268435457, 65539, 0, 0, 131075, 0, 268435456, 196611, 0, 0, 262147, 0, 1073741824)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mr4o5"]
+tile_data = PackedInt32Array(0, 0, 268435457, 65536, 0, 536870912, 1, 0, 268435457, 65537, 0, 536870912, 2, 0, 268435457, 65538, 0, 536870912)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1u4r"]
+texture = ExtResource("2_eh78a")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_b6kyq"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_s1u4r")
+pattern_0 = SubResource("TileMapPattern_0rlrb")
+pattern_1 = SubResource("TileMapPattern_mr4o5")
+
+[sub_resource type="Animation" id="Animation_dfmwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 163)]
+}
+
+[sub_resource type="Animation" id="Animation_fjhun"]
+resource_name = "wable"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(290, 163), Vector2(290, 158), Vector2(290, 166)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhf5i"]
+_data = {
+&"RESET": SubResource("Animation_dfmwt"),
+&"wable": SubResource("Animation_fjhun")
+}
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h6nft"]
+radius = 7.349
+height = 22.916
+
+[sub_resource type="Animation" id="Animation_mr4o5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rabbit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rabbit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, -31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [22.916]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:mesh:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7.349]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rabbit/ears:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rabbit:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qm07u"]
+resource_name = "running"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rabbit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rabbit:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -31), Vector2(17, -96), Vector2(9, -31)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [22.916, 22.916, 9.218, 22.916]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:mesh:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [7.349, 7.349, 4.609, 7.349]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rabbit/ears:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 3, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Rabbit:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.17078452, 0.17078452, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsy57"]
+_data = {
+&"RESET": SubResource("Animation_mr4o5"),
+&"running": SubResource("Animation_qm07u")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gb6l6"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_if5fy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mjxkn"]
+resource_name = "hit"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0, 0, 0.18039216), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mj0is"]
+_data = {
+&"RESET": SubResource("Animation_if5fy"),
+&"hit": SubResource("Animation_mjxkn")
+}
+
+[node name="levelrunner 2" type="Node2D" unique_id=1158765577]
+script = ExtResource("1_eh78a")
+traping = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1718218614]
+offset_left = -14.0
+offset_top = -11.0
+offset_right = 597.0
+offset_bottom = 315.0
+color = Color(0.0621164, 0.107476704, 0.036726855, 1)
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=298518020]
+scroll_offset = Vector2(0, -82)
+repeat_size = Vector2(750, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D3" unique_id=1047650045]
+modulate = Color(0.1802752, 0.15367627, 0.06059204, 1)
+position = Vector2(187, 194)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ukrmj")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Backgroundtrees2" type="Sprite2D" parent="Parallax2D3" unique_id=2002491480]
+modulate = Color(0.1802752, 0.15367627, 0.06059204, 1)
+position = Vector2(580, 193)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ukrmj")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=208049558]
+scroll_offset = Vector2(0, -69)
+repeat_size = Vector2(750, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Parallax2D2" unique_id=513405244]
+modulate = Color(0.092717476, 0.3214839, 0.16723704, 1)
+position = Vector2(1, -35)
+tile_map_data = PackedByteArray("AAAHAAkAAAAAAAAAACAIAAkAAAAAAAAAACAHAAgAAAAAAAEAABAJAAkAAAAAAAAAACAKAAkAAAAAAAAAACAJAAgAAAAAAAEAABAKAAgAAAAAAAEAABALAAgAAAAAAAEAABAIAAgAAAAAAAEAABAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEADAAgAAAAAAAEAABADAAkAAAAAAAAAAAAEAAgAAAAAAAEAABAEAAkAAAAAAAAAACAFAAgAAAAAAAEAABAFAAkAAAAAAAAAACAGAAgAAAAAAAEAABAGAAkAAAAAAAAAACAMAAgAAAAAAAEAABAMAAkAAAAAAAAAACANAAgAAAAAAAEAABANAAkAAAAAAAAAACAOAAgAAAAAAAEAABAOAAkAAAAAAAAAACAPAAgAAAAAAAEAABAPAAkAAAAAAAAAACAQAAgAAAAAAAEAABAQAAkAAAAAAAAAACARAAgAAAAAAAEAABARAAkAAAAAAAAAACASAAgAAAAAAAEAABASAAkAAAAAAAAAACATAAgAAAAAAAEAABATAAkAAAAAAAAAACAUAAgAAAAAAAEAABAUAAkAAAAAAAAAACAVAAgAAAAAAAEAABAVAAkAAAAAAAAAACAWAAgAAAAAAAEAABAWAAkAAAAAAAAAACAXAAgAAAAAAAEAABAXAAkAAAAAAAAAACAYAAgAAAAAAAEAABAYAAkAAAAAAAAAACAZAAgAAAAAAAEAABAZAAkAAAAAAAAAACALAAkAAAAAAAAAACA=")
+tile_set = SubResource("TileSet_b6kyq")
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D2" unique_id=867805761]
+modulate = Color(0.22641054, 0.19966817, 0.09271655, 1)
+position = Vector2(187, 180)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ukrmj")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Backgroundtrees2" type="Sprite2D" parent="Parallax2D2" unique_id=637196826]
+modulate = Color(0.22641054, 0.19966817, 0.09271655, 1)
+position = Vector2(563, 178)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ukrmj")
+flip_h = true
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1797595712]
+scroll_offset = Vector2(0, -80)
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(-150, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=681820291]
+modulate = Color(0.13328564, 0.43083042, 0.2360371, 1)
+scale = Vector2(2, 1)
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAEAAAAAAAkAAAAAAAAAAEAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAEABAAgAAAAAAAEAAAABAAkAAAAAAAAAAEABAAoAAAAAAAAAACABAAsAAAAAAAAAAAABAAwAAAAAAAAAAAACAAgAAAAAAAEAAAACAAkAAAAAAAAAAEACAAoAAAAAAAAAABACAAsAAAAAAAAAAAACAAwAAAAAAAAAAAADAAgAAAAAAAEAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAABADAAsAAAAAAAAAAAADAAwAAAAAAAAAAEAFAAgAAAAAAAEAAAAFAAkAAAAAAAAAAEAFAAoAAAAAAAAAACAFAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAAAAEAGAAoAAAAAAAAAABAGAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAgAAAAAAAEAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAABAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAEAIAAgAAAAAAAEAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAABAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAEAEAAgAAAAAAAEAAAAEAAkAAAAAAAAAAEAEAAoAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAAAAEA=")
+tile_set = SubResource("TileSet_b6kyq")
+
+[node name="Backgroundtrees" type="Sprite2D" parent="Parallax2D" unique_id=1388527701]
+modulate = Color(0.28620884, 0.20092526, 0.032482143, 1)
+position = Vector2(271, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ukrmj")
+hframes = 2
+vframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=839661907]
+position = Vector2(290, 163)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=1737339803]
+libraries/ = SubResource("AnimationLibrary_vhf5i")
+autoplay = &"wable"
+speed_scale = 0.5
+
+[node name="bunbun" type="CharacterBody2D" parent="." unique_id=289341438 groups=["plr"]]
+modulate = Color(0.772951, 0.77295107, 0.772951, 1)
+z_index = 1
+position = Vector2(145, 276)
+script = ExtResource("3_3g0rm")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="bunbun" unique_id=1491570333]
+modulate = Color(0, 0, 0, 0.2509804)
+z_index = -1
+position = Vector2(6, -6)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+mesh = SubResource("CapsuleMesh_h6nft")
+
+[node name="Rabbit" type="Sprite2D" parent="bunbun" unique_id=2076056848]
+position = Vector2(9, -31)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0nh7f")
+hframes = 2
+vframes = 3
+
+[node name="ears" type="Sprite2D" parent="bunbun/Rabbit" unique_id=648338583]
+position = Vector2(8.000006, -20.999985)
+scale = Vector2(0.8437499, 1)
+texture = ExtResource("4_0nh7f")
+hframes = 2
+vframes = 3
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bunbun" unique_id=1928353182]
+libraries/ = SubResource("AnimationLibrary_jsy57")
+autoplay = &"RESET"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bunbun" unique_id=634040736]
+position = Vector2(1, -11)
+shape = SubResource("CircleShape2D_gb6l6")
+
+[node name="going" type="Node2D" parent="." unique_id=456071599]
+modulate = Color(0.5729883, 0.5729883, 0.5729883, 1)
+position = Vector2(611, 266)
+
+[node name="beartrap" parent="going" unique_id=1759796603 instance=ExtResource("5_5gmyb")]
+position = Vector2(-216, 19)
+
+[node name="beartrap2" parent="going" unique_id=1654627057 instance=ExtResource("5_5gmyb")]
+position = Vector2(-233, -47)
+
+[node name="beartrap3" parent="going" unique_id=910575161 instance=ExtResource("5_5gmyb")]
+position = Vector2(-91, 37)
+
+[node name="Timer" type="Timer" parent="." unique_id=1454948340]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=762502549]
+offset_left = 229.0
+offset_top = 246.0
+offset_right = 558.0
+offset_bottom = 276.0
+bbcode_enabled = true
+text = "[b][color=dark_green][wave][wave]press W S or arrows to start"
+fit_content = true
+scroll_active = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1504179583]
+
+[node name="burrow" type="Node2D" parent="." unique_id=2035163940]
+position = Vector2(810, 253)
+
+[node name="Burrow" type="Sprite2D" parent="burrow" unique_id=1210828367]
+modulate = Color(0.4357096, 0.15023881, 0.06504484, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("6_euga7")
+hframes = 2
+
+[node name="Burrow2" type="Sprite2D" parent="burrow" unique_id=927421751]
+modulate = Color(0.12397682, 0.26373515, 0.10205371, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("6_euga7")
+hframes = 2
+frame = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=39964829]
+visible = false
+z_index = 1
+offset_right = 583.0
+offset_bottom = 331.0
+color = Color(1, 1, 1, 0)
+
+[node name="hitanimation" type="AnimationPlayer" parent="." unique_id=1022290385]
+libraries/ = SubResource("AnimationLibrary_mj0is")
+speed_scale = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

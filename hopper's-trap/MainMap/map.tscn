@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://2vddnw2wh4x1" path="res://MainMap/mapforest.png" id="1_kkc7k"]
 [ext_resource type="Script" uid="uid://c8u7a5l2x63vm" path="res://MainMap/TeleportToLvl.gd" id="2_kkc7k"]
 [ext_resource type="Texture2D" uid="uid://cnjn3hgqpdr5n" path="res://reusable/traps/beartrap16.png" id="4_ftx8i"]
+[ext_resource type="Texture2D" uid="uid://bflkkvo8loxnw" path="res://reusable/misc/warning16.png" id="5_6burw"]
+[ext_resource type="Texture2D" uid="uid://dulhpl7uh0b6w" path="res://reusable/traps/hole16.png" id="6_d8vpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftx8i"]
 size = Vector2(22, 23)
@@ -85,7 +87,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yjngi"]
-size = Vector2(14, 14)
+size = Vector2(27, 27)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkc7k"]
 radius = 5.998741
@@ -164,7 +166,7 @@ sprite_frames = SubResource("SpriteFrames_tnyfk")
 autoplay = "default"
 
 [node name="fight1" type="Area2D" parent="levels" unique_id=1568032199 node_paths=PackedStringArray("CLayer", "plr")]
-position = Vector2(109, 136)
+position = Vector2(152, 224)
 script = ExtResource("2_kkc7k")
 SceneTeleportTo = "uid://l1udnvhn4e80"
 CLayer = NodePath("../../CanvasLayer")
@@ -179,6 +181,55 @@ shape = SubResource("RectangleShape2D_yjngi")
 offset_right = 14.0
 offset_bottom = 14.0
 color = Color(0.14622876, 0.14622876, 0.14622873, 1)
+
+[node name="fight2" type="Area2D" parent="levels" unique_id=1119542829 node_paths=PackedStringArray("CLayer", "plr")]
+position = Vector2(158, 72)
+script = ExtResource("2_kkc7k")
+SceneTeleportTo = "uid://bvjawcbjjkjxm"
+CLayer = NodePath("../../CanvasLayer")
+id = 3
+plr = NodePath("../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/fight2" unique_id=797883074]
+position = Vector2(11, -6)
+shape = SubResource("RectangleShape2D_yjngi")
+
+[node name="Warning16" type="Sprite2D" parent="levels/fight2" unique_id=1089051193]
+position = Vector2(28, -10)
+texture = ExtResource("5_6burw")
+
+[node name="Warning17" type="Sprite2D" parent="levels/fight2" unique_id=1707908145]
+position = Vector2(3, -20)
+texture = ExtResource("5_6burw")
+
+[node name="Warning18" type="Sprite2D" parent="levels/fight2" unique_id=1040126626]
+position = Vector2(23, -24)
+texture = ExtResource("5_6burw")
+
+[node name="hop-run2" type="Area2D" parent="levels" unique_id=1850017402 node_paths=PackedStringArray("CLayer", "plr")]
+position = Vector2(205, 220)
+script = ExtResource("2_kkc7k")
+SceneTeleportTo = "uid://bo5x2mpi288dx"
+CLayer = NodePath("../../CanvasLayer")
+id = 2
+plr = NodePath("../../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levels/hop-run2" unique_id=155536337]
+position = Vector2(11, -6)
+shape = SubResource("RectangleShape2D_yjngi")
+
+[node name="Warning16" type="Sprite2D" parent="levels/hop-run2" unique_id=637800999]
+position = Vector2(17, 7)
+texture = ExtResource("6_d8vpp")
+
+[node name="Warning18" type="Sprite2D" parent="levels/hop-run2" unique_id=497000759]
+position = Vector2(20, -20)
+texture = ExtResource("6_d8vpp")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="levels/hop-run2" unique_id=400539147]
+position = Vector2(2, -7)
+sprite_frames = SubResource("SpriteFrames_6gf01")
+autoplay = "default"
 
 [node name="boarder" type="StaticBody2D" parent="." unique_id=1637064387]
 z_index = 1
@@ -315,5 +366,18 @@ polygon = PackedVector2Array(267, 188, 244, 215, 242, 254, 216.0573, 255.23538, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="boarder" unique_id=1623046928]
 polygon = PackedVector2Array(167, 124, 169, 118, 195, 113, 199, 99, 203, 98, 205, 106, 212, 105, 227, 111, 234, 119, 249, 127, 249, 138, 244, 146, 241, 156, 232, 163, 213, 160, 197, 162, 191, 177, 185, 175, 181, 166, 175, 161, 170, 147, 165, 135, 184, 135, 182, 124)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=349659076]
+offset_left = 268.0
+offset_top = 105.0
+offset_right = 446.0
+offset_bottom = 263.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[b][color=black][wave][wave]hello this game is not finished,
+it currently has 4 levels"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="levels/hop-n-run" to="levels/hop-n-run" method="_on_body_entered"]
 [connection signal="body_entered" from="levels/fight1" to="levels/fight1" method="_on_body_entered"]
+[connection signal="body_entered" from="levels/fight2" to="levels/fight2" method="_on_body_entered"]
+[connection signal="body_entered" from="levels/hop-run2" to="levels/hop-run2" method="_on_body_entered"]

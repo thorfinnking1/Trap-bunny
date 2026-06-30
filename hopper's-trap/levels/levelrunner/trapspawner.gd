@@ -9,6 +9,8 @@ var max_time=20.0
 var time=0.0
 var hp=2
 
+@export var traping:int
+
 @onready var burrow: Node2D = $burrow
 
 var play=false
@@ -20,7 +22,10 @@ var goodtogo=true
 const DEADSCREEN = preload("uid://dpuabxnjo6c4p")
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
+const HIDDENHOLE = preload("uid://dc8w2n31i5vxp")
+
 const BEARTRAP = preload("uid://b4qbbdekef3q3")
+
 var speed=150
 
 @onready var parallax_2d_3: Parallax2D = $Parallax2D3
@@ -53,21 +58,40 @@ func _on_timer_timeout() -> void:
 	
 	if play and goodtogo:
 		for i in range(randi_range(1,2)):
-			var trap=BEARTRAP.instantiate()
-			ground.add_child(trap)
-			trap.time=5
-			trap.position=Vector2(0,randf_range(-50,40))
-			trap.connect("kill",dead)
-		if time>=max_time:
-			goodtogo=false
-			var child=burrow
-			child.get_parent().remove_child(child)
-			ground.add_child(child)
-			child.position=Vector2(280,0)
+			if traping==1:
+				if randf()<0.5:
+					var trap=BEARTRAP.instantiate()
+					ground.add_child(trap)
+					trap.time=5
+					trap.position=Vector2(0,randf_range(-50,40))
+					trap.connect("kill",dead)
+				else:
+					var trap=HIDDENHOLE.instantiate()
+					ground.add_child(trap)
+					trap.time=5
+					trap.position=Vector2(0,randf_range(-50,40))
+					trap.connect("kill",dead)
+			else:
+				var trap=BEARTRAP.instantiate()
+				ground.add_child(trap)
+				trap.time=5
+				trap.position=Vector2(0,randf_range(-50,40))
+				trap.connect("kill",dead)
+			
+			if time>=max_time:
+				goodtogo=false
+				var child=burrow
+				child.get_parent().remove_child(child)
+				ground.add_child(child)
+				child.position=Vector2(280,0)
+	
 	elif time>=max_time+5:
 		play=false
 		bunbun.visible=false
-		Gl.levels[0][2]=hp+1
+		if traping==0:
+			Gl.levels[0][2]=hp+1
+		else:
+			Gl.levels[2][2]=hp+1
 		Scenemanager.leave("res://MainMap/map.tscn","circle")
 
 func dead()->void:
